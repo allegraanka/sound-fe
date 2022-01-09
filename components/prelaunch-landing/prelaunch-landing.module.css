@@ -1,0 +1,23 @@
+  .copy {
+    margin: 20px 0;
+  }
+  
+  .heading {
+    font-size: 5rem;
+  }
+  
+  .subheading {
+    font-size: 1.2rem;
+  }
+  
+  @media screen and (max-width: 728px) {
+    .heading {
+      font-size: 3rem;
+    }
+  }
+  
+  @media screen and (max-width: 414px) {
+    .heading {
+      font-size: 45px;
+    }
+  }
