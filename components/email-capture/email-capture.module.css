@@ -10,7 +10,6 @@
     padding: 10px;
     outline: none;
     border-width: 0.5px;
-    border-radius: 3px;
     border-color: whitesmoke;
     color: whitesmoke;
     background: transparent;
@@ -23,10 +22,25 @@
     border-color: whitesmoke;
     color: whitesmoke;
     width: 100px;
+    height: 46px;
     margin: 0 0 0 10px;
 }
 
-.emailSubmit:hover {
+.emailSubmit:hover,
+.emailSubmit:focus {
     background: whitesmoke;
     color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .emailSubmit {
+        margin: 10px 0 0 0;
+        align-self: center;
+    }
 }

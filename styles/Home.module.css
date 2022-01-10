@@ -1,14 +1,35 @@
 .container {
   min-height: 100vh;
-  padding: 0 5rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: whitesmoke;
 }
 
-@media screen and (max-width: 414px) {
-  .container {
-    padding: 0 30px;
+.flexContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.cta {
+  max-width: 50%;
+}
+
+.aboutSection {
+  max-width: 50%;
+}
+
+@media screen and (max-width: 1150px) {
+  .flexContainer {
+    flex-direction: column;
+  }
+
+  .cta {
+    max-width: 100%;
+  }
+  
+  .aboutSection {
+    max-width: 100%;
   }
 }
