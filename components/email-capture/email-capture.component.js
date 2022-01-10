@@ -18,8 +18,10 @@ class EmailCapture extends React.Component {
   }
 
   handleSubmit(e) {
+    // TODO send email to Mailchimp on submit
     alert('An email was submitted: ' + this.state.value);
     e.preventDefault();
+    // TODO once email is saved, send a thank you back to the user
   }
 
   render() {

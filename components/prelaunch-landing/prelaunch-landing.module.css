@@ -1,4 +1,17 @@
-  .copy {
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 5rem;
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+  background: url('../../public/danny-howe-background.jpg'), #262627;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.copy {
     margin: 20px 0;
   }
   
