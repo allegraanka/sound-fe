@@ -13,16 +13,26 @@ class EmailCapture extends React.Component {
        this.handleSubmit = this.handleSubmit.bind(this);
    }
 
-   handleChange(e) {
-    this.setState({value: e.target.value});
-  }
+    handleChange(e) {
+      this.setState({value: e.target.value});
+    }
 
-  handleSubmit(e) {
-    // TODO send email to Mailchimp on submit
-    alert('An email was submitted: ' + this.state.value);
-    e.preventDefault();
-    // TODO once email is saved, send a thank you back to the user
-  }
+    handleSubmit = async (e) => {
+      e.preventDefault();
+      const userEmail = this.state.value;
+      console.log(`User email being sent to api: ---> ${userEmail}`);
+
+      const response = await fetch('/api/email-list/subscribe.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userEmail)
+      })
+      const data = await response.json();
+      console.log(`Data posted in email-capture: ${data}`);
+      // TODO once email is saved, send a thank you back to the user
+    }
 
   render() {
       return(

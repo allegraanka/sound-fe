@@ -15,6 +15,11 @@
     background: transparent;
 }
 
+.emailInput:hover,
+.emailInput:focus {
+    border-width: 2.5px;
+}
+
 .emailSubmit {
     outline: none;
     background: transparent;
