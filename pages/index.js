@@ -1,4 +1,4 @@
-import styles from '../styles/home.module.css';
+import styles from '../styles/Home.module.css';
 import PrelaunchLanding from '../components/prelaunch-landing/prelaunch-landing.component';
 import PrelaunchAbout from '../components/prelaunch-about/prelaunch-about.component';
 
