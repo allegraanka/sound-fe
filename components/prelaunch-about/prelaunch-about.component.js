@@ -17,7 +17,7 @@ const PrelaunchAbout = () => {
                         and enthusiastic listeners who drive to see shows even when the roads are covered in snow.
                     </p>
                     <p className={styles.text}>
-                        <b>The Sound</b> is a community-building resource dedicated to celebrating, fostering, and growing live music and all who make it happen here.
+                        <b>The Sound</b> is a community-building resource dedicated to celebrating, fostering, and growing live music and all who make it happen here in the beautiful city of Rochester.
                     </p>
                 </div>
             </div>
