@@ -1,49 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './email-capture.module.css';
 
-class EmailCapture extends React.Component {
-   constructor(props) {
-       super(props);
+export default function EmailCapture() {
+  const [email, setEmail] = useState('');
 
-       this.state = {
-           value: ''
-       }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(`User email test: ${email}`);
 
-       this.handleChange = this.handleChange.bind(this);
-       this.handleSubmit = this.handleSubmit.bind(this);
-   }
-
-    handleChange(e) {
-      this.setState({value: e.target.value});
-    }
-
-    handleSubmit = async (e) => {
-      e.preventDefault();
-      const userEmail = this.state.value;
-      console.log(`User email being sent to api: ---> ${userEmail}`);
-
-      const response = await fetch('/api/email-list/subscribe.js', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userEmail)
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        email 
       })
-      const data = await response.json();
-      console.log(`Data posted in email-capture: ${data}`);
-      // TODO once email is saved, send a thank you back to the user
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(`Error sending email to API: ${error}`);
+      return;
     }
 
-  render() {
-      return(
-        <form className={styles.formContainer} onSubmit={this.handleSubmit}>
-            <input className={styles.emailInput} type="email" placeholder="Email" value={this.state.value} onChange={this.handleChange} />
-            <button className={styles.emailSubmit} type="submit" value="Sign up">
-                Sign up
-            </button>
-        </form>
-      );
+    console.log(`User email being sent to Mailchimp audience: ${email}`);
   }
-}
 
-export default EmailCapture;
+  return(
+    <form className={styles.formContainer} onSubmit={handleSubmit}>
+        <input className={styles.emailInput} type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <button className={styles.emailSubmit} type="submit" value="Sign up">
+            Sign up
+        </button>
+    </form>
+  );
+}
