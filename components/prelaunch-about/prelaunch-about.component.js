@@ -7,11 +7,11 @@ const PrelaunchAbout = () => {
             <div className={styles.copy}>
                 <h1 className={styles.heading}>The Sound is coming soon</h1>
                 <div className={styles.textSection}>
-                    <p className={styles.text}>
+                    {/* <p className={styles.text}>
                         Live music is one of the most powerful human experiences.
                         It radiates electricity, force, inspiration.
                         It is one of the most simple, yet powerful, ways to bring people together and create enigmatic connections.
-                    </p>
+                    </p> */}
                     <p className={styles.text}>
                         Rochester, NY has a vibrant and eclectic local music scene composed of driven, talented artists, historic and fun music venues, 
                         and enthusiastic listeners who drive to see shows even when the roads are covered in snow.
