@@ -16,10 +16,26 @@ export default async function subscribe(req, res) {
         email_address: email,
         status: "subscribed"
       });
-      res.status(200).json({ response });
-      console.log(`Successfully added contact as an audience member. The contact's id is ${response.id}.`);
+      res.status(200).json({
+        success: true,
+        user: email
+      });
+
+      console.log(`mailchimp response ---> ${JSON.stringify(response)}`);
+      console.log(`Successfully added contact: ${email} as an audience member. ${email}'s id is ${response.id}.`);
     }
+    
     catch (error) {
-      console.log(`There was an error adding contact: ${email} to Mailchimp audience: ${error}`);
+      res.status(400).json({
+        success: false,
+        user: email,
+        error: error
+      })
     }    
   }
+
+  // export const config = {
+  //   api: {
+  //     externalResolver: true,
+  //   },
+  // }
