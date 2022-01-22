@@ -9,7 +9,7 @@
     margin: 0 10px 0 0;
     padding: 10px;
     outline: none;
-    border-width: 0.5px;
+    border-width: 1.5px;
     border-color: whitesmoke;
     color: whitesmoke;
     background: transparent;
@@ -23,7 +23,7 @@
 .emailSubmit {
     outline: none;
     background: transparent;
-    border-width: 0.5px;
+    border-width: 1.5px;
     border-color: whitesmoke;
     color: whitesmoke;
     width: 100px;
@@ -38,7 +38,7 @@
 }
 
 .emailSubmit:focus {
-    border-width: 2.5px;
+    border-width: 3.5px;
 }
 
 @media screen and (max-width: 600px) {
