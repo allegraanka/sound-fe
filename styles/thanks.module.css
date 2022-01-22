@@ -1,0 +1,45 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #262627;
+    color: whitesmoke;
+}
+
+.mainCopy {
+    font-size: 20px;
+}
+
+.subCopy {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.subReturn {
+    font-size: 12px;
+    margin: 50px 0;
+}
+
+@media screen and (min-width: 768px) {
+    .mainCopy {
+        font-size: 40px;
+    }
+    .subCopy {
+        font-size: 28px;
+    }
+    .subReturn {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .mainCopy {
+        font-size: 14px;
+    }
+    .subCopy,
+    .subReturn {
+        font-size: 10px;
+    }
+}

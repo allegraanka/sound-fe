@@ -8,7 +8,7 @@ export default function EmailCapture() {
     e.preventDefault();
     console.log(`User email test: ${email}`);
 
-    const res = await fetch('/api/subscribe', {
+    await fetch('/api/subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -16,23 +16,29 @@ export default function EmailCapture() {
       body: JSON.stringify({ 
         email 
       })
-    });
+    })
+    // .then((response) => console.log(`response: ${response.json({})}`));
 
-    const { error } = await res.json();
-    if (error) {
-      console.log(`Error sending email to API: ${error}`);
-      return;
-    }
-
-    console.log(`User email being sent to Mailchimp audience: ${email}`);
+    setEmail(''); // reset email input
+    location.replace('/thanks');
   }
 
   return(
-    <form className={styles.formContainer} onSubmit={handleSubmit}>
-        <input className={styles.emailInput} type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <button className={styles.emailSubmit} type="submit" value="Sign up">
-            Sign up
-        </button>
-    </form>
+    <>
+      <form className={styles.formContainer} onSubmit={handleSubmit}>
+          <input
+            required
+            pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+            className={styles.emailInput} 
+            type='email'
+            placeholder="Email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+          <button className={styles.emailSubmit} type="submit" value="Sign up">
+              Sign up
+          </button>
+      </form>
+    </>
   );
 }

@@ -15,8 +15,12 @@ p {
 }
 
 a {
-  color: inherit;
+  color: #855EF4;
   text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 * {
