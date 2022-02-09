@@ -1,13 +1,23 @@
+import axios from 'axios';
 import styles from '../styles/Home.module.css';
-import PrelaunchLanding from '../components/prelaunch-landing/prelaunch-landing.component';
-import PrelaunchAbout from '../components/prelaunch-about/prelaunch-about.component';
+import Tonight from '../components/tonight/tonight.component';
 
-const Home = () => {
+export async function getStaticProps() {
+  const shows = await axios.get('http://localhost:1337/api/shows');
+
+  return {
+    props: {
+      shows: shows.data.data
+    }
+  }
+}
+
+const Home = ({ shows }) => {
+  console.log('shows in home component: ', shows);
   return (
     <>
       <div className={styles.container}>
-        <PrelaunchLanding />
-        <PrelaunchAbout />
+        <Tonight shows={shows}/>
       </div>
     </>
   );

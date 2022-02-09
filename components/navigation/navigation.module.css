@@ -1,0 +1,25 @@
+.navContainer {
+    position: fixed;
+    top: 0;
+    height: 75px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: transparent;
+    opacity: 0.6;
+    color: whitesmoke;
+}
+
+.navTitle {
+    font-size: 1.3em;
+}
+
+.navList {
+    list-style-type: none;
+}
+
+.navListItems {
+    display: inline;
+    margin: 0 20px;
+}
