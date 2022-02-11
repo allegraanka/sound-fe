@@ -12,7 +12,7 @@ class TheSoundDocument extends Document {
                 <Head>
                     <link rel="preconnect" href="https://fonts.googleapis.com"></link>
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
-                    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Staatliches&display=swap" rel="stylesheet"></link>
+                    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&family=Palanquin:wght@100;200;300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Staatliches&display=swap" rel="stylesheet"></link>
                     
                     {/* UIkit CSS  */}
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/css/uikit.min.css" />

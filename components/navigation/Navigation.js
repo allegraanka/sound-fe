@@ -4,13 +4,17 @@ import styles from './navigation.module.css';
 const Navbar = () => {
     return(
         <nav className={styles.navContainer}>
-            <Link href='/'>
-                <a className={styles.navTitle}>The Sound</a>
-            </Link>
+            <div className={styles.logo}>
+                <Link href='/'>
+                    <a>The Sound</a>
+                </Link>
+            </div>
             
             <ul className={styles.navList}>
                 <li className={styles.navListItems}>
-                    <a>About</a>
+                    <Link href='/about'>
+                        <a>About</a>
+                    </Link>
                 </li>
                 <li className={styles.navListItems}>
                     <Link href='/shows'>
@@ -19,13 +23,17 @@ const Navbar = () => {
                 </li>
                 <li className={styles.navListItems}>
                     <Link href='/posts'>
-                        <a>Posts</a>
+                        <a>Sound Check</a>
+                    </Link>
+                </li>
+                <li className={styles.navListItems}>
+                    <Link href='/'>
+                        <a>Non Normal Vectors</a>
                     </Link>
                 </li>
             </ul>
         </nav>
     );
-
 }
 
 export default Navbar;

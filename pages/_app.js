@@ -1,6 +1,5 @@
 import App from "next/app";
 import Head from "next/head";
-import NavBar from '../components/navigation/navigation.component';
 import '../styles/globals.css'
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
@@ -21,7 +20,6 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
-        <NavBar />
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </>

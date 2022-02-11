@@ -1,5 +1,8 @@
 import axios from 'axios';
+import Layout from '../../components/Layout/Layout';
 import styles from '../../styles/shows/shows.module.css';
+import Link from 'next/link';
+import ShowComponent from '../../components/show-component/show.component';
 
 export async function getStaticProps() {
     const shows = await axios.get('http://localhost:1337/api/shows');
@@ -11,22 +14,24 @@ export async function getStaticProps() {
     }
   }
 
-const Shows = ({ shows }) => {
+const ShowsPage = ({ shows }) => {
     return(
-        <div className={styles.showsContainer}>
-            <div className={styles.innerShowsContainer}>
-            <h1 className={styles.showsPageTitle}>Upcoming Shows</h1>
-                {shows.map((show) => (
-                    <>
-                        <div className={styles.showHeadliner}>{show.attributes.headliner}</div>
-                        <div className={styles.showSupport}>{show.attributes.support}</div>
-                        <div className={styles.showVenue}>{show.attributes.venue}</div>
-                        <div className={styles.showPrice}>{show.attributes.ticketPrice}</div>
-                    </>
-                ))}
+        <Layout title='The Sound | Upcoming Shows'>
+            <div className={styles.showsContainer}>
+                <div className={styles.innerShowsContainer}>
+                <h1 className={styles.showsPageTitle}>Upcoming Shows</h1>
+                    {shows.map((show) => (
+                        <div key={show.attributes.id}>
+                            <Link href={`/shows/${show.id}`}>
+                                <a>See details →</a>
+                            </Link>
+                            <ShowComponent show={show}/>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>  
+        </Layout>  
     );
 }
 
-export default Shows;
+export default ShowsPage;
