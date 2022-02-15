@@ -1,0 +1,75 @@
+.formContainer {
+    margin: 20px 0 5px;
+    display: flex;
+}
+
+.emailInput {
+    width: 350px;
+    height: 46px;
+    margin: 0 10px 0 0;
+    padding: 10px;
+    outline: none;
+    border-width: 1.5px;
+    border-color: whitesmoke;
+    color: whitesmoke;
+    background: transparent;
+}
+
+.emailInput:hover,
+.emailInput:focus {
+    border-width: 2.5px;
+}
+
+.emailSubmit {
+    outline: none;
+    background: transparent;
+    border-width: 1.5px;
+    border-color: whitesmoke;
+    color: whitesmoke;
+    width: 100px;
+    height: 46px;
+    margin: 0 0 0 10px;
+}
+
+.emailSubmit:hover,
+.emailSubmit:active {
+    background: whitesmoke;
+    color: black;
+}
+
+.emailSubmit:focus {
+    border-width: 3.5px;
+}
+
+@media screen and (max-width: 600px) {
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .emailInput {
+        margin: 0;
+        width: 100%;
+        height: 35px;
+    }
+
+    .emailSubmit {
+        margin: 10px 0 0 0;
+        align-self: center;
+        width: 80px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .emailInput {
+        height: 30px;
+        width: 100%;
+        align-self: center;
+    }
+
+    .emailSubmit {
+        height: 30px;
+    }
+}

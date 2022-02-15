@@ -1,0 +1,22 @@
+.postsContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.innerPostsContainer {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.pageCopyContainer {
+    margin: 50px 0;
+}
+
+.postsPageTitle {
+    margin: 10px 0;
+}
+
+.singlePostContainer {
+    margin: 25px 0;
+}

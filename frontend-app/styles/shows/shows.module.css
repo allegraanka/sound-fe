@@ -1,0 +1,40 @@
+.showsContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.innerShowsContainer {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.showsPageTitle {
+    margin: 45px 0;
+}
+
+.showHeadliner {
+    font-size: 24px;
+}
+
+.showSupport {
+    font-size: 16px;
+}
+
+.showVenue {
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.showPrice {
+    font-size: 22px;
+}
+
+.showUnit {
+    display: flex;
+}
+
+.imageWrapper {
+    margin: 0 20px 0 0;
+}

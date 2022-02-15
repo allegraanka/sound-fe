@@ -1,0 +1,14 @@
+.showContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.innerShowContainer {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.showDataContainer {
+    margin: 25px 0;
+}

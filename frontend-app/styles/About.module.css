@@ -1,0 +1,12 @@
+.aboutContainer {
+    padding: 10%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.textBlock {
+    width: 50%;
+    margin: 15px 0;
+}
