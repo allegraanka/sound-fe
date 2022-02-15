@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "submissions",
+  "info": {
+    "singularName": "submission",
+    "pluralName": "submissions",
+    "displayName": "Submission"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headliner": {
+      "type": "string"
+    },
+    "support": {
+      "type": "string"
+    },
+    "venue": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "showTime": {
+      "type": "string"
+    },
+    "doorTime": {
+      "type": "string"
+    },
+    "ticketPrice": {
+      "type": "string"
+    },
+    "chosen": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
