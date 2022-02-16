@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from '../../styles/SubmitShow.module.css';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function SubmitShowPage() {
@@ -24,26 +25,19 @@ export default function SubmitShowPage() {
         e.preventDefault();
         
         const hasEmptyFields = Object.values(values).some((element) => element === '');
-
         if (hasEmptyFields) {
             toast.error('Please complete every field.');
         }
 
         console.log('values', values);
 
-        const res = await fetch('http://localhost:1337/api/submissions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: { 'data': values }
-        });
-
-        if (!res.ok) {
-            toast.error('Something went wrong!');
-        } else {
-            const newShow = await res.json();
-            console.log('new show', newShow);
+        try {
+            const res = await axios.post('http://localhost:1337/api/submissions', { data: values });
+            console.log('submission response: ', res);
+            router.push('/'); // TODO redirect to a thank you for submitting page with a link to home
+        }
+        catch (error) {
+            console.log('There was an error submitting this show: ', error);
         }
         
     }

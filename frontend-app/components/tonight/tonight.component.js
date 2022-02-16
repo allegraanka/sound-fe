@@ -22,7 +22,7 @@ const Tonight = ({ shows }) => {
     });
 
     return(
-        <div className={styles.container}>
+        <div className={`md:col-span-2`}>
             <h2 className={styles.rochesterTonightTitle}>Rochester Tonight</h2>
             {showsTonight && showsTonight.map((show) => (
                 <div key={show.attributes.id}>

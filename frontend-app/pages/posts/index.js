@@ -15,8 +15,6 @@ export async function getStaticProps() {
   }
 
 const PostsPage = ({ posts }) => {
-    console.log('posts: ', posts);
-
     return(
         <Layout title='The Sound | Sound Check Blog'>
           <div className={styles.postsContainer}>

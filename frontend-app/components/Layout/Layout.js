@@ -8,7 +8,7 @@ export default function Layout({ title, keywords, description, children }) {
     const router = useRouter();
 
     return (
-        <div>
+        <div className={`debug-screens`}>
             <Head>
                 <title>{title}</title>
                 <meta name='description' content={description}/>
@@ -16,7 +16,7 @@ export default function Layout({ title, keywords, description, children }) {
             </Head>
 
             <Navigation />
-            <div className={styles.container}>
+            <div className={`container min-h-screen mt-32`}>
                 {children}
             </div>
             <Footer />

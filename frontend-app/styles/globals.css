@@ -1,11 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Palanquin, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: theme('fontFamily.sans'), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: whitesmoke;
-  color: #262627;
+  background: theme('colors.white');
+  color: theme('colors.black');
 }
 
 h1,
@@ -13,25 +17,24 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: 'Staatliches', cursive;
+  font-family: theme('fontFamily.cursive');
 }
 
 p {
   margin: 0;
-  font-family: 'Palanquin', sans-serif;
+  font-family: theme('fontFamily.sans');
 }
 
 a {
-  color: #262627;
+  color: theme('colors.black');
   text-decoration: none;
-  font-family: 'Palanquin Dark', sans-serif;
+  font-family: theme('fontFamily.sans');
   outline: 0;
 }
 
 a:hover {
-  opacity: 0.8;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: line-through;
 }
 
 * {

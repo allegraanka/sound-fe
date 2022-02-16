@@ -18,11 +18,9 @@ const HomePage = ({ shows }) => {
   console.log('shows in home component: ', shows);
   return (
     <Layout>
-      <div className={styles.container}>
-        <div className={styles.flexboxTonightShowcase}>
-          <Tonight shows={shows}/>
-          <Showcase />
-        </div>
+      <div className={`grid grid-cols-1 md:grid-cols-6 gap-8`}>
+        <Showcase />
+        <Tonight shows={shows}/>
       </div>
     </Layout>
   );

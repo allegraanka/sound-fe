@@ -24,9 +24,6 @@ export default function Search() {
                         onChange={(e) => setTerm(e.target.value)}
                         placeholder={`Search shows`}>
                     </input>
-                    <span className={styles.absoluteContainer}>
-                        <FaSearch />
-                    </span>
                 </span>
             </form>
         </div>
