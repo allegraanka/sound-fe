@@ -3,7 +3,7 @@ import Layout from '../../components/Layout/Layout';
 import styles from '../../styles/shows/shows.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import ShowComponent from '../../components/show-component/show.component';
+import ShowComponent from '../../components/ShowComponent/ShowComponent';
 import qs from 'qs';
 import { useRouter } from 'next/router';
 

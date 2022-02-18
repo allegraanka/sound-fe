@@ -51,9 +51,9 @@ export default function SubmitShowPage() {
         <Layout title='The Sound | Submit a show'>
             <div className={styles.container}>
                 <Link href='/'>
-                    <a className={`${styles.backButton} uk-button uk-button-text`}>← Back to home</a>
+                    <a className={``}>← Back to home</a>
                 </Link>
-                <h1>Submit a show</h1>
+                <h1 className={`text-5xl text-white my-8`} >Submit a show</h1>
                 <ToastContainer />
 
                 <form onSubmit={handleSubmit} className={styles.form}>
@@ -61,7 +61,7 @@ export default function SubmitShowPage() {
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='headliner'>Headlining band</label>
                             <input 
-                                className={styles.input}
+                                className={`w-full my-4 text-red-dark`}
                                 type='text' 
                                 id='headliner' 
                                 name='headliner'
@@ -73,7 +73,7 @@ export default function SubmitShowPage() {
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='support'>Support band(s)</label>
                             <input 
-                                className={styles.input}
+                                className={`w-full my-4 text-red-dark`}
                                 type='text' 
                                 id='support' 
                                 name='support'
@@ -85,7 +85,7 @@ export default function SubmitShowPage() {
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='venue'>Venue</label>
                             <input 
-                                className={styles.input}
+                                className={`w-full my-4 text-red-dark`}
                                 type='text' 
                                 id='venue' 
                                 name='venue'
@@ -97,7 +97,7 @@ export default function SubmitShowPage() {
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='date'>Date</label>
                             <input 
-                                className={styles.input}
+                                className={`w-full my-4 text-red-dark`}
                                 type='date' 
                                 id='date' 
                                 name='date'
@@ -108,7 +108,7 @@ export default function SubmitShowPage() {
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='showTime'>Show time</label>
                             <input 
-                                className={styles.input}
+                                className={`w-full my-4 text-red-dark`}
                                 type='text' 
                                 id='showTime' 
                                 name='showTime'
@@ -120,7 +120,7 @@ export default function SubmitShowPage() {
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='doorTime'>Door time</label>
                             <input 
-                                className={styles.input}
+                                className={`w-full my-4 text-red-dark`}
                                 type='text' 
                                 id='doorTime' 
                                 name='doorTime'
@@ -132,7 +132,7 @@ export default function SubmitShowPage() {
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='ticketPrice'>Ticket price</label>
                             <input 
-                                className={styles.input}
+                                className={`w-full my-4 text-red-dark`}
                                 type='text' 
                                 id='ticketPrice' 
                                 name='ticketPrice'
@@ -145,14 +145,14 @@ export default function SubmitShowPage() {
                     <div className={styles.textareaContainer}>
                         <label className={styles.label} htmlFor='description'>Description / Additional Info</label>
                         <textarea 
-                            className={styles.textarea} 
+                            className={`w-full h-48 my-4 text-red-dark`} 
                             id='description' 
                             name='description'
                             value={values.description} 
                             onChange={handleInputChange}
                         ></textarea>
                     </div>
-                    <input type='submit' value='Submit show' className={`uk-button uk-button-secondary`}/>
+                    <input type='submit' value='Submit show' className={``}/>
                 </form>
             </div>
         </Layout>

@@ -1,12 +1,17 @@
 import styles from './Showcase.module.css';
-import SubmitShowCTA from '../submit-show-component/submit-show.component';
+import SubmitShowCTA from '../SubmitShow/SubmitShow';
 
 export default function Showcase() {
     return (
-        <div className={`md:col-span-4`}>
+        <div className={`px-4 md:col-span-3 lg:col-span-4`}>
             <div className={styles.showcaseCopyContainer}>
-                <p className={`md:text-7xl md:my-8`}>Music <br /> Community <br /> Life</p>
-                <p className={`lg:text-xl`}>The Sound is your source for curated live music in Rochester, NY <br/> and a catalyst for community.</p>
+                <div className={`text-left md:container md:mx-auto`}>
+                    <span className={`text-5xl md:text-7xl font-black block`}>What are you<br/>doing tonight?</span>
+                    {/* <span className={`text-3xl md:text-5xl font-thin tracking-tighter uppercase block`}>Community</span>
+                    <span className={`text-5xl md:text-7xl uppercase block`}>Life</span><br/> */}
+                </div>
+                
+                <div className={`text-md my-8 w-fit md:text-2xl md:text-left`}>The Sound is your source for curated live music in Rochester, NY and a music community incubator initiative.</div>
                 <SubmitShowCTA />
             </div>
         </div>

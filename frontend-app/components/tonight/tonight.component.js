@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ShowComponent from '../show-component/show.component';
+import ShowComponent from '../ShowComponent/ShowComponent';
 import styles from './tonight.module.css';
 
 const Tonight = ({ shows }) => {
@@ -22,8 +22,9 @@ const Tonight = ({ shows }) => {
     });
 
     return(
-        <div className={`md:col-span-2`}>
-            <h2 className={styles.rochesterTonightTitle}>Rochester Tonight</h2>
+        <div className={`px-4 md:col-span-3 lg:col-span-2`}>
+            <div className={`text-3xl`}>{formatDate(current)}</div>
+            <h2 className={`text-5xl text-white`}>Rochester Tonight</h2>
             {showsTonight && showsTonight.map((show) => (
                 <div key={show.attributes.id}>
                     <ShowComponent show={show}/>

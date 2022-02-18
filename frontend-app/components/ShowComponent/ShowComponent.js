@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import styles from './show.module.css';
+import Link from 'next/link';
+import styles from './ShowComponent.module.css';
 
 const ShowComponent = ({ show }) => {
 
@@ -13,15 +14,18 @@ const ShowComponent = ({ show }) => {
     }
 
     return(
-        <div className={styles.showCard}>
-            <div className={styles.showDatePriceUnit}>
+        <div className={`flex my-4 p-4 w-full bg-white text-black rounded`}>
+            <div className={`px-4`}>
                 <div className={styles.showDate}>{formatDate(show.attributes.date)}</div>
-                <div className={styles.showPrice}>{show.attributes.ticketPrice}</div>
+                <div className={`text-2xl`}>{show.attributes.showTime}</div>
+                <div className={`text-2xl`}>{show.attributes.ticketPrice}</div>
             </div>
-            <div className={styles.showHeadlinerUnit}>
-                <div className={styles.showHeadliner}>{show.attributes.headliner}</div>
+            <div className={`text-xl md:text-lg`}>
+                <Link href={`/shows/${show.id}`}>
+                    <a><div className={`text-2xl`}>{show.attributes.headliner}</div></a>
+                </Link>
                 <div className={styles.showSupport}>{show.attributes.support}</div>
-                <div className={styles.showVenue}>{show.attributes.venue} {show.attributes.showTime}</div>
+                <div className={`uppercase`}>{show.attributes.venue}</div>
             </div>
         </div>
     );

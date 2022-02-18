@@ -18,7 +18,7 @@ const HomePage = ({ shows }) => {
   console.log('shows in home component: ', shows);
   return (
     <Layout>
-      <div className={`grid grid-cols-1 md:grid-cols-6 gap-8`}>
+      <div className={`bg-black text-white grid grid-cols-1 md:grid-cols-6 gap-8`}>
         <Showcase />
         <Tonight shows={shows}/>
       </div>

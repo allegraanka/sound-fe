@@ -3,7 +3,7 @@ import Layout from '../../components/Layout/Layout';
 import styles from '../../styles/shows/shows.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import ShowComponent from '../../components/show-component/show.component';
+import ShowComponent from '../../components/ShowComponent/ShowComponent';
 
 export async function getStaticProps() {
     const shows = await axios.get('http://localhost:1337/api/shows');
@@ -32,17 +32,11 @@ const ShowsPage = ({ shows }) => {
         <Layout title='The Sound | Upcoming Shows'>
             <div className={styles.showsContainer}>
                 <div className={styles.innerShowsContainer}>
-                <h1 className={styles.showsPageTitle}>Upcoming Shows</h1>
+                <h1 className={`text-5xl text-white`}>Upcoming Shows</h1>
                 {shows.length === 0 && <p>There are no upcoming shows right now!</p>}
                     {shows.map((show) => (
                         <div key={show.id}>
-                            <Link href={`/shows/${show.id}`}>
-                                <a>See details →</a>
-                            </Link>
-                            <div className={styles.showUnit}>
-                                <div className={styles.imageWrapper}>
-                                    <Image src={show.attributes.image ? show.attributes.image : '/images/default.jpg'} width={170} height={100} alt='band photo'/>
-                                </div>
+                            <div className={`md:flex items-center`}>
                                 <ShowComponent show={show}/>
                             </div>
                         </div>
