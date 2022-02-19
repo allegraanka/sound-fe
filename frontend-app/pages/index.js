@@ -6,10 +6,17 @@ import Showcase from '../components/Showcase/Showcase';
 
 export async function getStaticProps() {
   const shows = await axios.get('http://localhost:1337/api/shows');
+  const submissions = await axios.get('http://localhost:1337/api/submissions');
+
+  const chosenSubmissions = submissions.data.data.filter((show) => {
+    return show.attributes.chosen === true;
+  });
+
+  const displayShows = shows.data.data.concat(chosenSubmissions);
 
   return {
     props: {
-      shows: shows.data.data
+      shows: displayShows,
     }
   }
 }
@@ -18,7 +25,7 @@ const HomePage = ({ shows }) => {
   console.log('shows in home component: ', shows);
   return (
     <Layout>
-      <div className={`bg-black text-white grid grid-cols-1 md:grid-cols-6 gap-8`}>
+      <div className={`grid grid-cols-1 lg:grid-cols-6 gap-6`}>
         <Showcase />
         <Tonight shows={shows}/>
       </div>

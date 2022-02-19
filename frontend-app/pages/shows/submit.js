@@ -51,13 +51,13 @@ export default function SubmitShowPage() {
         <Layout title='The Sound | Submit a show'>
             <div className={styles.container}>
                 <Link href='/'>
-                    <a className={``}>← Back to home</a>
+                    <a className={`uppercase`}>← Back to home</a>
                 </Link>
                 <h1 className={`text-5xl text-white my-8`} >Submit a show</h1>
                 <ToastContainer />
 
                 <form onSubmit={handleSubmit} className={styles.form}>
-                    <div className={styles.grid}>
+                    <div className={`w-full md:w-5/6 lg:w-1/2 2xl:w-1/4`}>
                         <div className={styles.inputContainer}>
                             <label className={styles.label} htmlFor='headliner'>Headlining band</label>
                             <input 
@@ -142,7 +142,7 @@ export default function SubmitShowPage() {
                             />
                         </div>
                     </div>
-                    <div className={styles.textareaContainer}>
+                    <div className={`w-full md:w-5/6 lg:w-1/2 2xl:w-1/4`}>
                         <label className={styles.label} htmlFor='description'>Description / Additional Info</label>
                         <textarea 
                             className={`w-full h-48 my-4 text-red-dark`} 
@@ -152,7 +152,7 @@ export default function SubmitShowPage() {
                             onChange={handleInputChange}
                         ></textarea>
                     </div>
-                    <input type='submit' value='Submit show' className={``}/>
+                    <input type='submit' value='Submit show' className={`px-8 py-4 bg-red-light uppercase hover:bg-red-dark hover:border-2 hover:border-white hover:cursor-pointer`}/>
                 </form>
             </div>
         </Layout>

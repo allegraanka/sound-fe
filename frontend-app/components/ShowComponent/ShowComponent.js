@@ -14,7 +14,7 @@ const ShowComponent = ({ show }) => {
     }
 
     return(
-        <div className={`flex my-4 p-4 w-full bg-white text-black rounded`}>
+        <div className={`flex my-4 w-full text-white`}>
             <div className={`px-4`}>
                 <div className={styles.showDate}>{formatDate(show.attributes.date)}</div>
                 <div className={`text-2xl`}>{show.attributes.showTime}</div>

@@ -7,21 +7,23 @@ import ShowComponent from '../../components/ShowComponent/ShowComponent';
 
 export async function getStaticProps() {
     const shows = await axios.get('http://localhost:1337/api/shows');
+    const submissions = await axios.get('http://localhost:1337/api/submissions');
 
     const upcomingShows = shows.data.data.filter((show) => {
         const showDate = new Date(show.attributes.date).toLocaleDateString();
-        console.log('show date', showDate);
         const current = new Date().toLocaleDateString();
-        console.log('current date', current);
         return showDate >= current;
     });
 
-    console.log('all shows', shows.data.data);
-    console.log('upcoming shows', upcomingShows);
+    const chosenSubmissions = submissions.data.data.filter((show) => {
+        return show.attributes.chosen === true;
+    });
+
+    const displayShows = upcomingShows.concat(chosenSubmissions);
   
     return {
       props: {
-        shows: upcomingShows,
+        shows: displayShows,
         revalidate: 1,
       }
     }

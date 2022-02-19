@@ -3,15 +3,15 @@ import SubmitShowCTA from '../SubmitShow/SubmitShow';
 
 export default function Showcase() {
     return (
-        <div className={`px-4 md:col-span-3 lg:col-span-4`}>
+        <div className={`px-4 lg:col-span-4`}>
             <div className={styles.showcaseCopyContainer}>
-                <div className={`text-left md:container md:mx-auto`}>
+                <div className={`text-left`}>
                     <span className={`text-5xl md:text-7xl font-black block`}>What are you<br/>doing tonight?</span>
                     {/* <span className={`text-3xl md:text-5xl font-thin tracking-tighter uppercase block`}>Community</span>
                     <span className={`text-5xl md:text-7xl uppercase block`}>Life</span><br/> */}
                 </div>
                 
-                <div className={`text-md my-8 w-fit md:text-2xl md:text-left`}>The Sound is your source for curated live music in Rochester, NY and a music community incubator initiative.</div>
+                <div className={`text-lg my-8 w-fit md:text-2xl md:text-left`}>The Sound is your source for curated live music in Rochester, NY and a music community incubator initiative.</div>
                 <SubmitShowCTA />
             </div>
         </div>

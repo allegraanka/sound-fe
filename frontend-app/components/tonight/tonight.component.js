@@ -22,7 +22,7 @@ const Tonight = ({ shows }) => {
     });
 
     return(
-        <div className={`px-4 md:col-span-3 lg:col-span-2`}>
+        <div className={`lg:col-span-2`}>
             <div className={`text-3xl`}>{formatDate(current)}</div>
             <h2 className={`text-5xl text-white`}>Rochester Tonight</h2>
             {showsTonight && showsTonight.map((show) => (
