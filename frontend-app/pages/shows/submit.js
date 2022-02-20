@@ -16,7 +16,9 @@ export default function SubmitShowPage() {
         showTime: '',
         doorTime: '',
         ticketPrice: '',
-        description: ''
+        description: '',
+        submission: true,
+        chosen: false
     })
 
     const router = useRouter();
@@ -32,14 +34,13 @@ export default function SubmitShowPage() {
         console.log('values', values);
 
         try {
-            const res = await axios.post('http://localhost:1337/api/submissions', { data: values });
+            const res = await axios.post('http://localhost:1337/api/shows', { data: values });
             console.log('submission response: ', res);
             router.push('/'); // TODO redirect to a thank you for submitting page with a link to home
         }
         catch (error) {
             console.log('There was an error submitting this show: ', error);
         }
-        
     }
 
     const handleInputChange = (e) => {

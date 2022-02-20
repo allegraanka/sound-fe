@@ -18,17 +18,15 @@ const Tonight = ({ shows }) => {
         const showDate = new Date(show.attributes.date);
         const formattedShowDate = formatDate(showDate);
         const formattedCurrentDate = formatDate(current);
-        return formattedShowDate === formattedCurrentDate;
+        return formattedShowDate === formattedCurrentDate && show.attributes.chosen === true;
     });
 
     return(
         <div className={`lg:col-span-2`}>
             <div className={`text-3xl`}>{formatDate(current)}</div>
-            <h2 className={`text-5xl text-white`}>Rochester Tonight</h2>
+            <h2 className={`text-5xl text-black`}>Rochester Tonight</h2>
             {showsTonight && showsTonight.map((show) => (
-                <div key={show.attributes.id}>
-                    <ShowComponent show={show}/>
-                </div>
+                <ShowComponent key={show.id} show={show}/>
             ))}
             {shows.length > 0 && (
                 <Link href='/shows'>

@@ -28,26 +28,26 @@ export async function getStaticProps({ params }) {
 const PostPage = ({ post }) => {
     return(
         <Layout>
-            <div className={styles.postContainer}>
-                <article className={`${styles.innerPostContainer} uk-article`}>
+            <div className={`py-4`}>
+                <article className={``}>
                     <Link href='/posts'>
-                        <a className={`${styles.backButton} uk-button uk-button-text`}>← Back to posts</a>
+                        <a className={`uppercase`}>← Back to posts</a>
                     </Link>
-                    <h1 className="uk-article-title">{post.data.attributes.title}</h1>
-                    <p className="uk-article-meta">Written by <a href="#">Super User</a> on {post.data.attributes.publishedAt}. Posted in <a href="#">Blog</a></p>
-                    <p className="uk-text-lead">{post.data.attributes.description}</p>
-                    <p>{post.data.attributes.content}</p>
-                    <div className="uk-grid-small uk-child-width-auto" uk-grid>
-                        <div>
-                            <Link href="/posts">
-                                <a className="uk-button uk-button-text">Read more</a>
-                            </Link>
-                        </div>
-                        <div>
-                            <a className="uk-button uk-button-text" href="#">5 Comments</a>
-                        </div>
+                    <div className={`mt-12 mb-8`}>
+                        <h1 className={`text-5xl`}>{post.data.attributes.title}</h1>
+                        <p className={`uppercase text-sm`}>Written by <a href="#">Super User</a> on {post.data.attributes.publishedAt}. Posted in <a href="#">Blog</a></p>
+                    </div>
+                    <div className={`w-full lg:w-3/4`}>
+                        <p className={`text-2xl my-4`}>{post.data.attributes.description}</p>
+                        <p className={``}>{post.data.attributes.content}</p>
                     </div>
                 </article>
+                <div className={`my-8`}>
+                    <span className={`text-lg`}>Did you enjoy this piece?</span>
+                    <Link href='/posts'>
+                        <a className={`uppercase mx-4`}>Read more</a>
+                    </Link>
+                </div>
             </div>
         </Layout>
     );

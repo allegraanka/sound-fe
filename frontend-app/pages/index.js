@@ -22,7 +22,6 @@ export async function getStaticProps() {
 }
 
 const HomePage = ({ shows }) => {
-  console.log('shows in home component: ', shows);
   return (
     <Layout>
       <div className={`grid grid-cols-1 lg:grid-cols-6 gap-6`}>

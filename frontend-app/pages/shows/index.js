@@ -7,23 +7,18 @@ import ShowComponent from '../../components/ShowComponent/ShowComponent';
 
 export async function getStaticProps() {
     const shows = await axios.get('http://localhost:1337/api/shows');
-    const submissions = await axios.get('http://localhost:1337/api/submissions');
 
     const upcomingShows = shows.data.data.filter((show) => {
         const showDate = new Date(show.attributes.date).toLocaleDateString();
         const current = new Date().toLocaleDateString();
-        return showDate >= current;
+        if (showDate >= current && show.attributes.chosen === true) {
+            return show;
+        };
     });
-
-    const chosenSubmissions = submissions.data.data.filter((show) => {
-        return show.attributes.chosen === true;
-    });
-
-    const displayShows = upcomingShows.concat(chosenSubmissions);
   
     return {
       props: {
-        shows: displayShows,
+        shows: upcomingShows,
         revalidate: 1,
       }
     }
@@ -34,7 +29,7 @@ const ShowsPage = ({ shows }) => {
         <Layout title='The Sound | Upcoming Shows'>
             <div className={styles.showsContainer}>
                 <div className={styles.innerShowsContainer}>
-                <h1 className={`text-5xl text-white`}>Upcoming Shows</h1>
+                <h1 className={`text-5xl text-black`}>Upcoming Shows</h1>
                 {shows.length === 0 && <p>There are no upcoming shows right now!</p>}
                     {shows.map((show) => (
                         <div key={show.id}>

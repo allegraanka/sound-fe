@@ -4,7 +4,8 @@
   "info": {
     "singularName": "show",
     "pluralName": "shows",
-    "displayName": "Show"
+    "displayName": "Show",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -46,13 +47,14 @@
       "type": "richtext"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "ticketPrice": {
       "type": "string"
@@ -65,6 +67,14 @@
     },
     "imageUrl": {
       "type": "string"
+    },
+    "submission": {
+      "type": "boolean",
+      "default": false
+    },
+    "chosen": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

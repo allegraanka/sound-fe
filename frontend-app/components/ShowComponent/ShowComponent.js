@@ -4,6 +4,8 @@ import styles from './ShowComponent.module.css';
 
 const ShowComponent = ({ show }) => {
 
+    console.log('show from showcomponent --->', show.id);
+
     const formatDate = (dateInput) => {
         const date = new Date(dateInput);
         const day = date.getDate();
@@ -14,7 +16,7 @@ const ShowComponent = ({ show }) => {
     }
 
     return(
-        <div className={`flex my-4 w-full text-white`}>
+        <div className={`flex my-4 w-full text-black`}>
             <div className={`px-4`}>
                 <div className={styles.showDate}>{formatDate(show.attributes.date)}</div>
                 <div className={`text-2xl`}>{show.attributes.showTime}</div>
