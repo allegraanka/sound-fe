@@ -24,21 +24,28 @@ export default function EmailCapture() {
   }
 
   return(
-    <>
-      <form className={styles.formContainer} onSubmit={handleSubmit}>
+    <div className={`h-48 p-2 mb-12 flex flex-col`}>
+      <div className={`my-4`}>
+        <h1 className={`text-3xl`}>Be in the know</h1>
+        <p>It's time for a new kind of luxury.</p>
+      </div>
+      <form className={`flex flex-col sm:items-center sm:flex-row`} onSubmit={handleSubmit}>
           <input
             required
             pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
-            className={styles.emailInput} 
+            className={`w-full h-12 sm:w-96 mx-auto sm:mx-0`} 
             type='email'
             placeholder="Email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
           />
-          <button className={styles.emailSubmit} type="submit" value="Sign up">
+          <button 
+            className={`px-6 h-12 w-40 mx-auto sm:mx-2 my-2 text-white bg-red-light uppercase hover:bg-red-dark hover:cursor-pointer`} 
+            type="submit" 
+            value="Sign up">
               Sign up
           </button>
       </form>
-    </>
+    </div>
   );
 }

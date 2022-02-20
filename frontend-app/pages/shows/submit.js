@@ -50,11 +50,11 @@ export default function SubmitShowPage() {
 
     return (
         <Layout title='The Sound | Submit a show'>
-            <div className={styles.container}>
+            <div className={`mb-12`}>
                 <Link href='/'>
                     <a className={`uppercase`}>← Back to home</a>
                 </Link>
-                <h1 className={`text-5xl text-white my-8`} >Submit a show</h1>
+                <h1 className={`text-5xl text-black my-8`} >Submit a show</h1>
                 <ToastContainer />
 
                 <form onSubmit={handleSubmit} className={styles.form}>
@@ -153,7 +153,7 @@ export default function SubmitShowPage() {
                             onChange={handleInputChange}
                         ></textarea>
                     </div>
-                    <input type='submit' value='Submit show' className={`px-8 py-4 bg-red-light uppercase hover:bg-red-dark hover:border-2 hover:border-white hover:cursor-pointer`}/>
+                    <input type='submit' value='Submit show' className={`px-8 py-4 text-white bg-red-light uppercase hover:bg-red-dark hover:cursor-pointer`}/>
                 </form>
             </div>
         </Layout>

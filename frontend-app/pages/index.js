@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import Layout from '../components/Layout/Layout';
 import Tonight from '../components/tonight/tonight.component';
 import Showcase from '../components/Showcase/Showcase';
+import EmailCapture from '../components/email-capture/email-capture.component';
 
 export async function getStaticProps() {
   const shows = await axios.get('http://localhost:1337/api/shows');
@@ -28,6 +29,7 @@ const HomePage = ({ shows }) => {
         <Showcase />
         <Tonight shows={shows}/>
       </div>
+      <EmailCapture />
     </Layout>
   );
 }

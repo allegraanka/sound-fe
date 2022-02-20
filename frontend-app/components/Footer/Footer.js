@@ -3,11 +3,12 @@ import styles from './Footer.module.css';
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
-            <p>Copyright &copy 2022 The Sound</p>
-            <p>
+        <footer className={`w-full h-48 bg-black flex items-center justify-around`}>
+            <div className={`text-white`}>Copyright &copy;2022 The Sound</div>
+            <div>
+                <h2 className={`text-white`}>Links</h2>
                 <Link href='/about'>About this project</Link>
-            </p>
+            </div>
         </footer >
     );
 }

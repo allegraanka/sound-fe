@@ -4,7 +4,6 @@ import styles from './tonight.module.css';
 
 const Tonight = ({ shows }) => {
     const current = new Date();
-
     const formatDate = (dateInput) => {
         const date = new Date(dateInput);
         const day = date.getDate();
@@ -21,13 +20,25 @@ const Tonight = ({ shows }) => {
         return formattedShowDate === formattedCurrentDate && show.attributes.chosen === true;
     });
 
+    const datetimeSorted = showsTonight.sort((a,b) => {
+        const x = new Date(a.attributes.date);
+        const y = new Date(b.attributes.date);
+        return x - y;
+    });
+
     return(
-        <div className={`lg:col-span-2`}>
+        <div className={`mb-12 lg:col-span-2`}>
             <div className={`text-3xl`}>{formatDate(current)}</div>
             <h2 className={`text-5xl text-black`}>Rochester Tonight</h2>
-            {showsTonight && showsTonight.map((show) => (
+
+            {shows.length === 0 && (
+                <span>We have no show recommendations tonight!</span>
+            )}
+
+            {datetimeSorted && datetimeSorted.map((show) => (
                 <ShowComponent key={show.id} show={show}/>
             ))}
+
             {shows.length > 0 && (
                 <Link href='/shows'>
                     <a>All upcoming shows →</a>

@@ -15,10 +15,16 @@ export async function getStaticProps() {
             return show;
         };
     });
+
+    const datetimeSorted = upcomingShows.sort((a,b) => {
+        const x = new Date(a.attributes.date);
+        const y = new Date(b.attributes.date);
+        return x - y;
+    });
   
     return {
       props: {
-        shows: upcomingShows,
+        shows: datetimeSorted,
         revalidate: 1,
       }
     }
@@ -27,7 +33,7 @@ export async function getStaticProps() {
 const ShowsPage = ({ shows }) => {
     return(
         <Layout title='The Sound | Upcoming Shows'>
-            <div className={styles.showsContainer}>
+            <div className={`mb-12`}>
                 <div className={styles.innerShowsContainer}>
                 <h1 className={`text-5xl text-black`}>Upcoming Shows</h1>
                 {shows.length === 0 && <p>There are no upcoming shows right now!</p>}

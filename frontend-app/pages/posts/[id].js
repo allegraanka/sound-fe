@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from 'next/link';
+import Image from 'next/image';
 import Layout from '../../components/Layout/Layout';
 import styles from '../../styles/posts/post.module.css';
 
@@ -34,7 +35,8 @@ const PostPage = ({ post }) => {
                         <a className={`uppercase`}>← Back to posts</a>
                     </Link>
                     <div className={`mt-12 mb-8`}>
-                        <h1 className={`text-5xl`}>{post.data.attributes.title}</h1>
+                        <Image src={post.data.attributes.image ? post.data.attributes.image : '/images/default.jpg'} width={450} height={250}/>
+                        <h1 className={`text-5xl mt-4`}>{post.data.attributes.title}</h1>
                         <p className={`uppercase text-sm`}>Written by <a href="#">Super User</a> on {post.data.attributes.publishedAt}. Posted in <a href="#">Blog</a></p>
                     </div>
                     <div className={`w-full lg:w-3/4`}>

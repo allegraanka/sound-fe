@@ -20,10 +20,10 @@ const PostsPage = ({ posts }) => {
           <div className={`w-full md:w-3/4 xl:w-1/2`}>
               <div className={`my-8`}>
                 <h1 className={`text-5xl`}>Sound Board</h1>
-                <div className={`text-xl`}>Welcome to the Sound Board, the official blog of The Sound. We cover shows, local music news, and the occasional feature story on something super rad in the Rochester music scene.</div>
+                <div className={`text-xl`}>Welcome to Sound Board, The Sound&apos;s official blog. We cover shows, local music news, and the occasional feature story on something rad in Rochester&apos;s music community or history.</div>
               </div>
               {posts.map((post) => (
-                    <div key={post.id} className={styles.singlePostContainer}>
+                    <div key={post.id} className={`my-4`}>
                       <Link href={`/posts/${post.id}`}>
                         <a>
                           <h2 className={`text-2xl text-red-dark hover:text-red-light`}>{post.attributes.title}</h2>

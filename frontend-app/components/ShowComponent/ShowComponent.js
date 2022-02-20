@@ -3,9 +3,6 @@ import Link from 'next/link';
 import styles from './ShowComponent.module.css';
 
 const ShowComponent = ({ show }) => {
-
-    console.log('show from showcomponent --->', show.id);
-
     const formatDate = (dateInput) => {
         const date = new Date(dateInput);
         const day = date.getDate();
