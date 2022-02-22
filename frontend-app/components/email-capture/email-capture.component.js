@@ -26,8 +26,8 @@ export default function EmailCapture() {
   return(
     <div className={`h-48 p-2 mb-12 flex flex-col`}>
       <div className={`my-4`}>
-        <h1 className={`text-3xl`}>Be in the know</h1>
-        <p>It's time for a new kind of luxury.</p>
+        <h1 className={`text-3xl`}>Never miss a beat</h1>
+        <p>Get news, weekly show roundups, and exclusive content delivered right to your inbox.</p>
       </div>
       <form className={`flex flex-col sm:items-center sm:flex-row`} onSubmit={handleSubmit}>
           <input

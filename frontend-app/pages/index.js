@@ -4,6 +4,7 @@ import Layout from '../components/Layout/Layout';
 import Tonight from '../components/tonight/tonight.component';
 import Showcase from '../components/Showcase/Showcase';
 import EmailCapture from '../components/email-capture/email-capture.component';
+import Link from 'next/link';
 
 export async function getStaticProps() {
   const shows = await axios.get('http://localhost:1337/api/shows');

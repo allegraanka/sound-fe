@@ -2,10 +2,10 @@ import axios from "axios";
 import Link from 'next/link';
 import Image from 'next/image';
 import Layout from '../../components/Layout/Layout';
-import styles from '../../styles/posts/post.module.css';
+import qs from 'qs';
 
 export async function getStaticPaths() {
-    const posts = await axios.get('http://localhost:1337/api/posts');
+    const posts = await axios.get(`http://localhost:1337/api/posts`);
     console.log(posts.data.data);
     const paths = posts.data.data.map((post) => {
         return {params: {id: post.id.toString()}}
@@ -18,7 +18,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const posts = await axios.get(`http://localhost:1337/api/posts/${params.id}`);
+    const query = qs.stringify({
+        populate: '*',
+    }, {
+        encodeValuesOnly: true
+    });
+    const posts = await axios.get(`http://localhost:1337/api/posts/${params.id}?${query}`);
     return {
         props: {
             post: posts.data
@@ -27,6 +32,27 @@ export async function getStaticProps({ params }) {
 }
 
 const PostPage = ({ post }) => {
+    // Date formatter
+    const formatDate = (dateInput) => {
+        var options = {  weekday: 'short', month: 'numeric', day: 'numeric'};
+        const date = new Date(dateInput).toLocaleDateString('en-us', options);
+        return date;
+    }
+
+    // Get and format publish date
+    const publishDate = formatDate(post.data.attributes.publishedAt);
+
+    // Get categories off post object
+    const categories = post.data.attributes.categories.data.map((category) => {
+        return category.attributes.name;
+    });
+    
+    const writers = post.data.attributes.writers.data.map((writer) => {
+        return writer.attributes.name;
+    });
+    // TO DO process response from post, create cleaner variables for data in FE code below
+    // MAP over arrays in response to gather categories, writers, etc
+    console.log('p o s t d a t a ---> ', post);
     return(
         <Layout>
             <div className={`py-4`}>
@@ -35,9 +61,9 @@ const PostPage = ({ post }) => {
                         <a className={`uppercase`}>← Back to posts</a>
                     </Link>
                     <div className={`mt-12 mb-8`}>
-                        <Image src={post.data.attributes.image ? post.data.attributes.image : '/images/default.jpg'} width={450} height={250}/>
+                        <Image src={`/images/default.jpg`} width={450} height={250} alt='band photo'/>
                         <h1 className={`text-5xl mt-4`}>{post.data.attributes.title}</h1>
-                        <p className={`uppercase text-sm`}>Written by <a href="#">Super User</a> on {post.data.attributes.publishedAt}. Posted in <a href="#">Blog</a></p>
+                        <p className={`uppercase text-sm`}>Written by <a href="#">{writers}</a> on {publishDate}. {categories.join(', ')}</p>
                     </div>
                     <div className={`w-full lg:w-3/4`}>
                         <p className={`text-2xl my-4`}>{post.data.attributes.description}</p>

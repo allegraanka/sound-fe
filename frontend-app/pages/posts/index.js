@@ -20,7 +20,7 @@ const PostsPage = ({ posts }) => {
           <div className={`w-full md:w-3/4 xl:w-1/2`}>
               <div className={`my-8`}>
                 <h1 className={`text-5xl`}>Sound Board</h1>
-                <div className={`text-xl`}>Welcome to Sound Board, The Sound&apos;s official blog. We cover shows, local music news, and the occasional feature story on something rad in Rochester&apos;s music community or history.</div>
+                <div className={`text-xl`}>Welcome to Sound Board, a blog where we cover shows, local music news, and the occasional long-form feature story on something remarkable and rad in Rochester music.</div>
               </div>
               {posts.map((post) => (
                     <div key={post.id} className={`my-4`}>

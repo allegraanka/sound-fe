@@ -16,7 +16,7 @@ export default function Layout({ title, keywords, description, children }) {
             </Head>
 
             <Navigation />
-            <div className={`min-h-screen mt-32 mx-8`}>
+            <div className={`min-h-screen mt-20 px-4`}>
                 {children}
             </div>
             <Footer />

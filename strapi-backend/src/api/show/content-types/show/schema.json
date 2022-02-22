@@ -75,6 +75,9 @@
     "chosen": {
       "type": "boolean",
       "default": false
+    },
+    "genre": {
+      "type": "string"
     }
   }
 }
