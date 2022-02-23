@@ -1,31 +1,30 @@
 import axios from 'axios';
 import Link from 'next/link';
 import Layout from '../../components/Layout/Layout';
-import styles from '../../styles/posts/posts.module.css';
 
 export async function getStaticProps() {
-    const posts = await axios.get('http://localhost:1337/api/posts');
+    const soundchecks = await axios.get('http://localhost:1337/api/posts');
 
-    const filteredPosts = posts.data.data.filter(post => post.attributes.type === 'post');
+    const filteredSoundchecks = soundchecks.data.data.filter(post => post.attributes.type === 'soundcheck');
   
     return {
       props: {
-        posts: filteredPosts
+        posts: filteredSoundchecks
       }
     }
   }
 
-const PostsPage = ({ posts }) => {
+const SoundCheckPage = ({ posts }) => {
     return(
-        <Layout title='The Sound | Blog'>
+        <Layout title='The Sound | Sound Check Artist Spotlights'>
           <div className={`w-full md:w-3/4 xl:w-1/2`}>
               <div className={`my-8`}>
-                <h1 className={`text-5xl`}>Sound Board</h1>
-                <div className={`text-xl`}>Welcome to Sound Board, a blog where we cover shows, local music news, and the occasional long-form feature story on something remarkable and rad in Rochester music.</div>
+                <h1 className={`text-5xl`}>Sound Check Artist Spotlights</h1>
+                <div className={`text-xl`}>Welcome to our rapid-fire series that spotlights artists with questions that we hope will be fun to answer.</div>
               </div>
               {posts.map((post) => (
                     <div key={post.id} className={`my-4`}>
-                      <Link href={`/posts/${post.id}`}>
+                      <Link href={`/soundcheck/${post.id}`}>
                         <a>
                           <h2 className={`text-2xl text-red-dark hover:text-red-light`}>{post.attributes.title}</h2>
                         </a>
@@ -38,4 +37,4 @@ const PostsPage = ({ posts }) => {
     );
 }
 
-export default PostsPage;
+export default SoundCheckPage;

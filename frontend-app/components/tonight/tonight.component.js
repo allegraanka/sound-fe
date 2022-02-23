@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import ShowComponent from '../ShowComponent/ShowComponent';
-import styles from './tonight.module.css';
 
 const Tonight = ({ shows }) => {
     const current = new Date();
@@ -27,7 +26,7 @@ const Tonight = ({ shows }) => {
     });
 
     return(
-        <div className={`mb-12 lg:col-span-2`}>
+        <div className={`my-12`}>
             <div className={`text-3xl`}>{formatDate(current)}</div>
             <h2 className={`text-5xl text-black`}>Rochester Tonight</h2>
 

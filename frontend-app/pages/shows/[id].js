@@ -6,17 +6,10 @@ import styles from '../../styles/shows/show.module.css';
 
 export async function getStaticPaths() {
     const shows = await axios.get('http://localhost:1337/api/shows');
-    const submissions = await axios.get('http://localhost:1337/api/submissions');
 
-    const showPaths = shows.data.data.map(show => ({
+    const paths = shows.data.data.map(show => ({
         params: {id: show.id.toString()}
     }));
-
-    const submissionPaths = submissions.data.data.map(submission => ({
-        params: {id: submission.id.toString()}
-    }));
-
-    const paths = showPaths.concat(submissionPaths);
 
     return {
         paths,

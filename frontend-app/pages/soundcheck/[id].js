@@ -5,9 +5,9 @@ import Layout from '../../components/Layout/Layout';
 import qs from 'qs';
 
 export async function getStaticPaths() {
-    const posts = await axios.get(`http://localhost:1337/api/posts`);
-    console.log(posts.data.data);
-    const paths = posts.data.data.map((post) => {
+    const soundchecks = await axios.get(`http://localhost:1337/api/posts`);
+    console.log(soundchecks.data.data);
+    const paths = soundchecks.data.data.map((post) => {
         return {params: {id: post.id.toString()}}
     });
 
@@ -23,10 +23,10 @@ export async function getStaticProps({ params }) {
     }, {
         encodeValuesOnly: true
     });
-    const posts = await axios.get(`http://localhost:1337/api/posts/${params.id}?${query}`);
+    const soundchecks = await axios.get(`http://localhost:1337/api/posts/${params.id}?${query}`);
     return {
         props: {
-            post: posts.data
+            post: soundchecks.data
         }
     }
 }
@@ -52,7 +52,7 @@ const PostPage = ({ post }) => {
     });
     // TO DO process response from post, create cleaner variables for data in FE code below
     // MAP over arrays in response to gather categories, writers, etc
-
+    
     return(
         <Layout>
             <div className={`py-4`}>
@@ -71,8 +71,8 @@ const PostPage = ({ post }) => {
                     </div>
                 </article>
                 <div className={`my-8`}>
-                    <span className={`text-lg`}>Did you enjoy this?</span>
-                    <Link href='/posts'>
+                    <span className={`text-lg`}>Was this fun to read?</span>
+                    <Link href='/soundcheck'>
                         <a className={`uppercase mx-4`}>Read more</a>
                     </Link>
                 </div>

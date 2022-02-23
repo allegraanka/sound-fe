@@ -1,24 +1,17 @@
 import axios from 'axios';
-import styles from '../styles/Home.module.css';
 import Layout from '../components/Layout/Layout';
 import Tonight from '../components/tonight/tonight.component';
-import Showcase from '../components/Showcase/Showcase';
 import EmailCapture from '../components/email-capture/email-capture.component';
 import Link from 'next/link';
 
 export async function getStaticProps() {
   const shows = await axios.get('http://localhost:1337/api/shows');
-  const submissions = await axios.get('http://localhost:1337/api/submissions');
+  // const posts = await axios.get('http://localhost:1337/posts');
 
-  const chosenSubmissions = submissions.data.data.filter((show) => {
-    return show.attributes.chosen === true;
-  });
-
-  const displayShows = shows.data.data.concat(chosenSubmissions);
 
   return {
     props: {
-      shows: displayShows,
+      shows: shows.data.data,
     }
   }
 }
@@ -26,9 +19,14 @@ export async function getStaticProps() {
 const HomePage = ({ shows }) => {
   return (
     <Layout>
-      <div className={`grid grid-cols-1 lg:grid-cols-6 gap-6`}>
-        <Showcase />
-        <Tonight shows={shows}/>
+      <div className={`grid grid-cols-1 lg:grid-cols-2`}>
+        <div className={`p-4`}>
+          <div className={`text-2xl my-2 w-fit md:text-left`}>The Sound is your source for curated live music in Rochester, NY and a music community incubator initiative. Learn more <Link href='/about'><a>about us</a></Link>.</div>
+          <Tonight shows={shows}/>
+        </div>
+        <div className={`p-4`}>
+          featured posts placeholder
+        </div>
       </div>
       <EmailCapture />
     </Layout>
