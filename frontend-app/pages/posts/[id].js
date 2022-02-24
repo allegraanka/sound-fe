@@ -6,7 +6,7 @@ import qs from 'qs';
 
 export async function getStaticPaths() {
     const posts = await axios.get(`http://localhost:1337/api/posts`);
-    console.log(posts.data.data);
+    
     const paths = posts.data.data.map((post) => {
         return {params: {id: post.id.toString()}}
     });
@@ -61,7 +61,11 @@ const PostPage = ({ post }) => {
                         <a className={`uppercase`}>← Back to posts</a>
                     </Link>
                     <div className={`mt-12 mb-8`}>
-                        <Image src={`/images/default.jpg`} width={450} height={250} alt='band photo'/>
+                        <Image 
+                            src={`http://localhost:1337${post.data.attributes.image.data.attributes.formats.medium.url}`} 
+                            width={`${post.data.attributes.image.data.attributes.formats.medium.width}`} 
+                            height={`${post.data.attributes.image.data.attributes.formats.medium.height}`} 
+                            alt='blog post header image'/>
                         <h1 className={`text-5xl mt-4`}>{post.data.attributes.title}</h1>
                         <p className={`uppercase text-sm`}>Written by <a href="#">{writers}</a> on {publishDate}. {categories.join(', ')}</p>
                     </div>

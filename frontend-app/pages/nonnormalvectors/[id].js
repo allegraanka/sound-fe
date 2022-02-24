@@ -5,9 +5,9 @@ import Layout from '../../components/Layout/Layout';
 import qs from 'qs';
 
 export async function getStaticPaths() {
-    const soundchecks = await axios.get(`http://localhost:1337/api/posts`);
+    const nnvEpisodes = await axios.get(`http://localhost:1337/api/posts`);
     
-    const paths = soundchecks.data.data.map((post) => {
+    const paths = nnvEpisodes.data.data.map((post) => {
         return {params: {id: post.id.toString()}}
     });
 
@@ -23,15 +23,15 @@ export async function getStaticProps({ params }) {
     }, {
         encodeValuesOnly: true
     });
-    const soundchecks = await axios.get(`http://localhost:1337/api/posts/${params.id}?${query}`);
+    const nnvEpisodes = await axios.get(`http://localhost:1337/api/posts/${params.id}?${query}`);
     return {
         props: {
-            post: soundchecks.data
+            post: nnvEpisodes.data
         }
     }
 }
 
-const SoundCheckPage = ({ post }) => {
+const NonNormalVectorsPage = ({ post }) => {
     // Date formatter
     const formatDate = (dateInput) => {
         var options = {  weekday: 'short', month: 'numeric', day: 'numeric'};
@@ -54,10 +54,10 @@ const SoundCheckPage = ({ post }) => {
     // MAP over arrays in response to gather categories, writers, etc
     
     return(
-        <Layout title='The Sound | Sound Check Artist Spotlights'>
+        <Layout title='The Sound | Non Normal Vectors Podcast'>
             <div className={`py-4`}>
                 <article className={``}>
-                    <Link href='/soundcheck'>
+                    <Link href='/nonnormalvectors'>
                         <a className={`uppercase`}>← Back to Sound Check</a>
                     </Link>
                     <div className={`mt-12 mb-8`}>
@@ -76,8 +76,8 @@ const SoundCheckPage = ({ post }) => {
                     </div>
                 </article>
                 <div className={`my-8`}>
-                    <span className={`text-lg`}>Was this fun to read?</span>
-                    <Link href='/soundcheck'>
+                    <span className={`text-lg`}>Did you like this?</span>
+                    <Link href='/nonnormalvectors'>
                         <a className={`uppercase mx-4`}>Read more</a>
                     </Link>
                 </div>
@@ -86,4 +86,4 @@ const SoundCheckPage = ({ post }) => {
     );
 }
 
-export default SoundCheckPage;
+export default NonNormalVectorsPage;

@@ -27,7 +27,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::post.post",
-      "inversedBy": "writers"
+      "mappedBy": "writers"
     },
     "email": {
       "type": "string"

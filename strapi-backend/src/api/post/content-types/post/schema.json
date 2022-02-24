@@ -32,19 +32,30 @@
       "inversedBy": "posts"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "writers": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::writer.writer",
       "inversedBy": "posts"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "post",
+        "soundcheck",
+        "nonnormalvectors"
+      ],
+      "default": "post",
+      "required": true
     }
   }
 }
