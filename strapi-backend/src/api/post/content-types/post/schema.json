@@ -56,6 +56,11 @@
       ],
       "default": "post",
       "required": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
