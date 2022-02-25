@@ -14,17 +14,19 @@ export default function Search() {
     }
 
     return(
-        <div className={styles.searchContainer}>
-            <form className={styles.searchForm} onSubmit={handleSubmit}>
-                <span className={styles.relativeContainer}>
+        <div className={`w-full flex justify-center`}>
+            <form className={`px-8`} onSubmit={handleSubmit}>
+                <h2 className={``}>Looking for something?</h2>
+                <span className={``}>
                     <input 
-                        className={styles.searchInput} 
+                        className={``} 
                         type="text" 
                         value={term}
                         onChange={(e) => setTerm(e.target.value)}
                         placeholder={`Search shows`}>
                     </input>
                 </span>
+                <input className={`mx-2 hover:cursor-pointer`} type='submit' value='Go →'></input>
             </form>
         </div>
     );

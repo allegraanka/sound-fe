@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import ShowComponent from '../ShowComponent/ShowComponent';
 
 const Tonight = ({ shows }) => {
@@ -26,9 +27,9 @@ const Tonight = ({ shows }) => {
     });
 
     return(
-        <div className={`my-12`}>
+        <div className={`my-12 p-6 shadow-xl`}>
             <div className={`text-3xl`}>{formatDate(current)}</div>
-            <h2 className={`text-5xl text-black`}>Rochester Tonight</h2>
+            <h2 className={`text-5xl text-black drop-shadow-md`}>Rochester Tonight</h2>
 
             {shows.length === 0 && (
                 <span>We have no show recommendations tonight!</span>

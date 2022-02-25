@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
-import styles from './Layout.module.css';
 import { useRouter } from 'next/router';
 
 export default function Layout({ title, keywords, description, children }) {
@@ -16,7 +15,7 @@ export default function Layout({ title, keywords, description, children }) {
             </Head>
 
             <Navigation />
-            <div className={`min-h-screen mt-16 px-4`}>
+            <div className={`min-h-screen mt-6 px-4`}>
                 {children}
             </div>
             <Footer />

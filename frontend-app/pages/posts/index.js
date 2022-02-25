@@ -32,17 +32,19 @@ const PostsPage = ({ posts }) => {
               </div>
               {posts.map((post) => (
                     <div key={post.id} className={`my-12 w-fit`}>
-                      <Image 
-                        src={`http://localhost:1337${post.attributes.image.data.attributes.formats.medium.url}`} 
-                        width={`${post.attributes.image.data.attributes.formats.small.width}`} 
-                        height={`${post.attributes.image.data.attributes.formats.small.height}`} 
-                        alt='blog post header image'/>
-                      <Link href={`/posts/${post.id}`}>
-                        <a>
-                          <h2 className={`text-2xl text-red-dark hover:text-red-light`}>{post.attributes.title}</h2>
-                        </a>
-                      </Link>
-                      <div className={`w-fit`}>{post.attributes.description}</div>
+                      <div>
+                        <Image 
+                          src={`http://localhost:1337${post.attributes.image.data.attributes.formats.medium.url}`} 
+                          width={`${post.attributes.image.data.attributes.formats.small.width}`} 
+                          height={`${post.attributes.image.data.attributes.formats.small.height}`} 
+                          alt='blog post header image'/>
+                        <Link href={`/posts/${post.id}`}>
+                          <a>
+                            <h2 className={`text-2xl text-red-dark hover:text-red-light`}>{post.attributes.title}</h2>
+                          </a>
+                        </Link>
+                        <div className={`w-fit`}>{post.attributes.description}</div>
+                      </div>
                     </div>
               ))}
           </div>

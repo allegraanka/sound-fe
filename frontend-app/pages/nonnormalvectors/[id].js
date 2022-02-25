@@ -58,7 +58,7 @@ const NonNormalVectorsPage = ({ post }) => {
             <div className={`py-4`}>
                 <article className={``}>
                     <Link href='/nonnormalvectors'>
-                        <a className={`uppercase`}>← Back to Sound Check</a>
+                        <a className={`uppercase`}>← Back to Episodes</a>
                     </Link>
                     <div className={`mt-12 mb-8`}>
                         <Image 

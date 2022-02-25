@@ -11,6 +11,9 @@ export async function getStaticProps() {
     const upcomingShows = shows.data.data.filter((show) => {
         const showDate = new Date(show.attributes.date).toLocaleDateString();
         const current = new Date().toLocaleDateString();
+        if (showDate === current) {
+            show.isToday = true;
+        }
         if (showDate >= current && show.attributes.chosen === true) {
             return show;
         };
@@ -39,7 +42,8 @@ const ShowsPage = ({ shows }) => {
                 {shows.length === 0 && <p>There are no upcoming shows right now!</p>}
                     {shows.map((show) => (
                         <div key={show.id}>
-                            <div className={`md:flex items-center`}>
+                            <div className={`flex items-center`}>
+                                {show.isToday ? '*' : ''}
                                 <ShowComponent show={show}/>
                             </div>
                         </div>
