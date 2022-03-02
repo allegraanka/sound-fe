@@ -1,14 +1,33 @@
-import axios from 'axios';
 import Layout from '../../components/Layout/Layout';
-import styles from '../../styles/shows/shows.module.css';
-import Link from 'next/link';
-import Image from 'next/image';
 import ShowComponent from '../../components/ShowComponent/ShowComponent';
+import SearchComponent from '../../components/Search/Search';
+import { fetchAPI } from '../../lib/api';
+
+const ShowsPage = ({ shows }) => {
+    return(
+        <Layout title='The Sound | Upcoming Shows'>
+            <div className={`mb-12`}>
+                <SearchComponent />
+                <div className={`px-4 lg:px-8`}>
+                <h1 className={`text-5xl text-black`}>Upcoming Shows</h1>
+                {shows.length === 0 && <p>There are no upcoming shows right now!</p>}
+                    {shows.map((show) => (
+                        <div key={show.id}>
+                            <div className={`flex items-start`}>
+                                <ShowComponent show={show}/>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </Layout>  
+    );
+}
 
 export async function getStaticProps() {
-    const shows = await axios.get('http://localhost:1337/api/shows');
+    const shows = await fetchAPI('/shows');
 
-    const upcomingShows = shows.data.data.filter((show) => {
+    const upcomingShows = shows.data.filter((show) => {
         const showDate = new Date(show.attributes.date).toLocaleDateString();
         const current = new Date().toLocaleDateString();
         if (showDate === current) {
@@ -32,26 +51,5 @@ export async function getStaticProps() {
       }
     }
   }
-
-const ShowsPage = ({ shows }) => {
-    return(
-        <Layout title='The Sound | Upcoming Shows'>
-            <div className={`mb-12`}>
-                <div className={styles.innerShowsContainer}>
-                <h1 className={`text-5xl text-black`}>Upcoming Shows</h1>
-                {shows.length === 0 && <p>There are no upcoming shows right now!</p>}
-                    {shows.map((show) => (
-                        <div key={show.id}>
-                            <div className={`flex items-center`}>
-                                {show.isToday ? '*' : ''}
-                                <ShowComponent show={show}/>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </Layout>  
-    );
-}
 
 export default ShowsPage;

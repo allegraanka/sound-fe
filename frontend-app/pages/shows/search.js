@@ -1,14 +1,10 @@
-import axios from 'axios';
 import Layout from '../../components/Layout/Layout';
-import styles from '../../styles/shows/shows.module.css';
-import Link from 'next/link';
-import Image from 'next/image';
 import ShowComponent from '../../components/ShowComponent/ShowComponent';
-import qs from 'qs';
 import { useRouter } from 'next/router';
+import { fetchAPI } from '../../lib/api';
 
 export async function getServerSideProps({ query: {term}}) {
-    const query = qs.stringify({
+    const shows = await fetchAPI('/shows', {
         filters: {
             $or: [
                 {
@@ -29,11 +25,10 @@ export async function getServerSideProps({ query: {term}}) {
             ]
         }
     })
-    const shows = await axios.get(`http://localhost:1337/api/shows?${query}`);
   
     return {
       props: {
-        shows: shows.data.data
+        shows: shows.data
       }
     }
   }
@@ -43,22 +38,12 @@ const SearchPage = ({ shows }) => {
 
     return(
         <Layout title='The Sound | Upcoming Shows'>
-            <div className={styles.showsContainer}>
-                <div className={styles.innerShowsContainer}>
-                <h1 className={styles.showsPageTitle}>Search results for {router.query.term}</h1>
-                {shows.length === 0 && <p>Sorry! Nothing matched that search.</p>}
+            <div className={`px-4`}>
+                <div className={``}>
+                    <h1 className={`text-5xl`}>Search results for <span className={`text-red-dark`}>{router.query.term}</span></h1>
+                    {shows.length === 0 && <p>Sorry! Nothing matched that search.</p>}
                     {shows.map((show) => (
-                        <div key={show.id}>
-                            <Link href={`/shows/${show.id}`}>
-                                <a>See details →</a>
-                            </Link>
-                            <div className={styles.showUnit}>
-                                <div className={styles.imageWrapper}>
-                                    <Image src={show.attributes.image ? show.attributes.image : '/images/default.jpg'} width={170} height={100} alt='band photo'/>
-                                </div>
-                                <ShowComponent show={show}/>
-                            </div>
-                        </div>
+                        <ShowComponent key={show.id} show={show}/>
                     ))}
                 </div>
             </div>

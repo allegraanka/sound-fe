@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from './Search.module.css';
-import { FaSearch } from 'react-icons/fa'
 
 export default function Search() {
     const [term, setTerm] = useState('');
@@ -14,9 +12,9 @@ export default function Search() {
     }
 
     return(
-        <div className={`w-full flex justify-center`}>
-            <form className={`px-8`} onSubmit={handleSubmit}>
-                <h2 className={``}>Looking for something?</h2>
+        <div className={`w-screen h-36 flex items-center px-4 lg:px-8`}>
+            <form className={``} onSubmit={handleSubmit}>
+                <h2 className={`text-xl`}>Looking for something?</h2>
                 <span className={``}>
                     <input 
                         className={``} 

@@ -34,9 +34,9 @@ export default function SubmitShowPage() {
         console.log('values', values);
 
         try {
-            const res = await axios.post('http://localhost:1337/api/shows', { data: values });
+            const res = await axios.post(`${process.env.STRAPI_API_BASE_URL}/api/shows`, { data: values });
             console.log('submission response: ', res);
-            router.push('/'); // TODO redirect to a thank you for submitting page with a link to home
+            router.push('/thanks');
         }
         catch (error) {
             console.log('There was an error submitting this show: ', error);

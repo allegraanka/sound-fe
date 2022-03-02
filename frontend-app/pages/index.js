@@ -1,30 +1,10 @@
-import axios from 'axios';
 import Layout from '../components/Layout/Layout';
 import Tonight from '../components/tonight/tonight.component';
 import FeaturedPosts from '../components/FeaturedPosts/FeaturedPosts';
 import SubmitShow from '../components/SubmitShow/SubmitShow';
 import EmailCapture from '../components/email-capture/email-capture.component';
 import Link from 'next/link';
-import qs from 'qs';
-
-export async function getStaticProps() {
-  const shows = await axios.get('http://localhost:1337/api/shows');
-  
-  const query = qs.stringify({
-      populate: '*',
-  }, {
-      encodeValuesOnly: true
-  });
-  const posts = await axios.get(`http://localhost:1337/api/posts?${query}`);
-  const featuredPosts = posts.data.data.filter(post => post.attributes.featured === true);
-
-  return {
-    props: {
-      shows: shows.data.data,
-      featured: featuredPosts
-    }
-  }
-}
+import { fetchAPI } from '../lib/api';
 
 const HomePage = ({ shows, featured }) => {
   return (
@@ -38,8 +18,29 @@ const HomePage = ({ shows, featured }) => {
         </div>
         <FeaturedPosts featured={featured}/>
       </div>
+      <div className={`w-screen h-60 flex items-center justify-center`}>
+        <Link href='/about'>
+          <a className={`text-5xl uppercase`}>Get to know us →</a>
+        </Link>
+      </div>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const [shows, posts] = await Promise.all([
+    fetchAPI('/shows', { populate: '*', encodeValuesOnly: true }),
+    fetchAPI('/posts', { populate: '*', encodeValuesOnly: true })
+  ])
+  
+  const featuredPosts = posts.data.filter(post => post.attributes.featured === true);
+
+  return {
+    props: {
+      shows: shows.data,
+      featured: featuredPosts
+    }
+  }
 }
 
 export default HomePage;

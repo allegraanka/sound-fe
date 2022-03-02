@@ -8,7 +8,7 @@ export default function NotFoundPage() {
         <Layout title='Page Not Found'>
             <div className={styles.error}>
                 <h1> <FaExclamationTriangle /> 404</h1>
-                <h4>You don&#39;t have to go <Link href='/'>home</Link> but you can&#39;t stay here.</h4>
+                <h4>You don&#39;t have to go <Link href='/'><a>home</a></Link> but you can&#39;t stay here.</h4>
             </div>
         </Layout>
     );

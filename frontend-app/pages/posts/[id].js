@@ -1,35 +1,7 @@
-import axios from "axios";
 import Link from 'next/link';
-import Image from 'next/image';
 import Layout from '../../components/Layout/Layout';
-import qs from 'qs';
-
-export async function getStaticPaths() {
-    const posts = await axios.get(`http://localhost:1337/api/posts`);
-    
-    const paths = posts.data.data.map((post) => {
-        return {params: {id: post.id.toString()}}
-    });
-
-    return {
-        paths,
-        fallback: false
-    }
-}
-
-export async function getStaticProps({ params }) {
-    const query = qs.stringify({
-        populate: '*',
-    }, {
-        encodeValuesOnly: true
-    });
-    const posts = await axios.get(`http://localhost:1337/api/posts/${params.id}?${query}`);
-    return {
-        props: {
-            post: posts.data
-        }
-    }
-}
+import NextImage from '../../components/Image/Image';
+import { fetchAPI } from "../../lib/api";
 
 const PostPage = ({ post }) => {
     // Date formatter
@@ -39,39 +11,34 @@ const PostPage = ({ post }) => {
         return date;
     }
 
-    // Get and format publish date
-    const publishDate = formatDate(post.data.attributes.publishedAt);
+    // Get and format publish date from post object
+    const publishDate = formatDate(post.attributes.publishedAt);
 
-    // Get categories off post object
-    const categories = post.data.attributes.categories.data.map((category) => {
+    // Get categories from post object
+    const categories = post.attributes.categories.data.map((category) => {
         return category.attributes.name;
     });
     
-    const writers = post.data.attributes.writers.data.map((writer) => {
+    // Get writers from post object
+    const writers = post.attributes.writers.data.map((writer) => {
         return writer.attributes.name;
     });
-    // TO DO process response from post, create cleaner variables for data in FE code below
-    // MAP over arrays in response to gather categories, writers, etc
 
     return(
         <Layout>
-            <div className={`py-4`}>
+            <div className={`p-4`}>
                 <article className={``}>
                     <Link href='/posts'>
                         <a className={`uppercase`}>← Back to posts</a>
                     </Link>
                     <div className={`mt-12 mb-8`}>
-                        <Image 
-                            src={`http://localhost:1337${post.data.attributes.image.data.attributes.formats.medium.url}`} 
-                            width={`${post.data.attributes.image.data.attributes.formats.medium.width}`} 
-                            height={`${post.data.attributes.image.data.attributes.formats.medium.height}`} 
-                            alt='blog post header image'/>
-                        <h1 className={`text-5xl mt-4`}>{post.data.attributes.title}</h1>
+                        <NextImage image={post.attributes.image}/>
+                        <h1 className={`text-5xl mt-4`}>{post.attributes.title}</h1>
                         <p className={`uppercase text-sm`}>Written by <a href="#">{writers}</a> on {publishDate}. {categories.join(', ')}</p>
                     </div>
                     <div className={`w-full lg:w-3/4`}>
-                        <p className={`text-2xl my-4`}>{post.data.attributes.description}</p>
-                        <p className={``}>{post.data.attributes.content}</p>
+                        <p className={`text-2xl my-4`}>{post.attributes.description}</p>
+                        <p className={``}>{post.attributes.content}</p>
                     </div>
                 </article>
                 <div className={`my-8`}>
@@ -83,6 +50,33 @@ const PostPage = ({ post }) => {
             </div>
         </Layout>
     );
+}
+
+export async function getStaticPaths() {
+    const posts = await fetchAPI('/posts', { populate: '*', encodeValuesOnly: true });
+    const paths = posts.data.map((post) => {
+        return {params: {id: post.id.toString()}}
+    });
+
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+export async function getStaticProps({ params }) {
+    const posts = await fetchAPI('/posts', {
+        filters: {
+            id: params.id,
+        },
+        populate: '*',
+    });
+
+    return {
+        props: {
+            post: posts.data[0]
+        }
+    }
 }
 
 export default PostPage;

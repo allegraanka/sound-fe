@@ -1,15 +1,60 @@
 import Layout from '../components/Layout/Layout';
+import NextImage from '../components/Image/Image';
+import ReactMarkdown from 'react-markdown';
+import { fetchAPI } from '../lib/api';
 
-export default function AboutPage() {
+export default function AboutPage({ content }) {
     return (
         <Layout title='The Sound | About Us'>
-            <div className={`px-4`}>
-                <h1 className={`text-black text-5xl`}>About The Sound</h1>
-                <div className={`w-full lg:w-3/4`}>
-                    <p className={`my-3`}>Ibaby synth actually tote bag normcore iceland. Dreamcatcher locavore hella banjo health goth. Venmo asymmetrical meh cloud bread, sartorial iceland twee poutine deep v. Vice ennui cardigan gastropub pitchfork microdosing, keytar retro neutra. Intelligentsia crucifix mixtape disrupt chambray listicle stumptown lo-fi kickstarter mumblecore jean shorts. Occupy lomo kickstarter hashtag shaman swag. Vegan lo-fi fixie copper mug quinoa coloring book hammock.</p>
-                    <p className={`my-3`}>Succulents yr umami seitan aesthetic locavore blue bottle squid yuccie marfa gluten-free cornhole jianbing. Tacos activated charcoal trust fund humblebrag fixie. Tilde vice letterpress swag bushwick. Health goth leggings activated charcoal prism, VHS thundercats iPhone 8-bit.</p>
+            <div className={`px-8 lg:w-3/4 mx-auto`}>
+
+                <div className={``}>
+                    <div className={``}>
+                        <h1 className={`text-5xl`}>{content.attributes.title}</h1>
+                        <p className={`text-2xl md:text-3xl pb-12`}>{content.attributes.description}</p>
+                    </div>
+                    <NextImage image={content.attributes.headerImage}/>
+                </div>
+
+                <div className={``}>
+                    <div className={`text-2xl my-8`}>
+                        <ReactMarkdown>{content.attributes.contentSection1}</ReactMarkdown>
+                    </div>
+                    <div className={`text-2xl my-8`}>
+                        <ReactMarkdown>{content.attributes.contentSection2}</ReactMarkdown>
+                    </div>
+                </div>
+
+                <div className={`md:flex justify-around`}>
+
+                    <div className={`w-full md:w-2/6 md:my-12`}>
+                        <NextImage image={content.attributes.kateImage}/>
+                        <div className={`my-4`}>
+                            <h2 className={`text-3xl`}>Kate</h2>
+                            <p className={`text-xl`}>{content.attributes.kateBio}</p>
+                        </div>
+                    </div>
+
+                    <div className={`w-full md:w-2/6 md:my-12`}>
+                        <NextImage className={``} image={content.attributes.allegraImage}/>
+                        <div className={`my-4`}>
+                            <h2 className={`text-3xl`}>Allegra</h2>
+                            <p className={`text-xl`}>{content.attributes.allegraBio}</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </Layout>
     );
+}
+
+export async function getStaticProps() {
+    const aboutPage = await fetchAPI('/about-page', { populate: '*', encodeValuesOnly: true });
+
+    return {
+        props: {
+            content: aboutPage.data
+            }
+        }
 }

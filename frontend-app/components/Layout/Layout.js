@@ -15,7 +15,7 @@ export default function Layout({ title, keywords, description, children }) {
             </Head>
 
             <Navigation />
-            <div className={`min-h-screen mt-6 px-4`}>
+            <div className={`min-h-screen mt-6`}>
                 {children}
             </div>
             <Footer />
@@ -24,7 +24,7 @@ export default function Layout({ title, keywords, description, children }) {
 }
 
 Layout.defaultProps = {
-    title: 'The Sound | Discover live music in Rochester, NY',
+    title: 'Discover live music in Rochester, NY',
     description: 'Your source for curated live music in Rochester, NY',
     keywords: 'music, show, shows, live music, dj, events, music scene, rochester, rochester new york'
 }
