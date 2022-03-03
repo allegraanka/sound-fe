@@ -12,6 +12,7 @@ const ShowPage = ({ show }) => {
                 <div className={`my-8`}>
                     <div className={``}>
                         <p className={``}>{show.attributes.promoter}</p>
+                        <p className={``}>{show.attributes.date}</p>
                         <h1 className={`text-5xl`}>{show.attributes.headliner}</h1>
                         <p className={`text-2xl`}>{show.attributes.support}</p>
                     </div>

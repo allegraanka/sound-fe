@@ -4,8 +4,6 @@ import Footer from '../Footer/Footer';
 import { useRouter } from 'next/router';
 
 export default function Layout({ title, keywords, description, children }) {
-    const router = useRouter();
-
     return (
         <div className={`debug-screens`}>
             <Head>

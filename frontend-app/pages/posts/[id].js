@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Layout from '../../components/Layout/Layout';
 import NextImage from '../../components/Image/Image';
+import ReactMarkdown from 'react-markdown';
 import { fetchAPI } from "../../lib/api";
 
 const PostPage = ({ post }) => {
@@ -29,19 +30,19 @@ const PostPage = ({ post }) => {
             <div className={`p-4`}>
                 <article className={``}>
                     <Link href='/posts'>
-                        <a className={`uppercase`}>← Back to posts</a>
+                        <a className={`bg-white uppercase`}>← Back to posts</a>
                     </Link>
-                    <div className={`mt-12 mb-8`}>
+                    <div className={`bg-white mt-12 mb-8`}>
                         <NextImage image={post.attributes.image}/>
                         <h1 className={`text-5xl mt-4`}>{post.attributes.title}</h1>
                         <p className={`uppercase text-sm`}>Written by <a href="#">{writers}</a> on {publishDate}. {categories.join(', ')}</p>
                     </div>
-                    <div className={`w-full lg:w-3/4`}>
+                    <div className={`bg-white py-4 w-full lg:w-3/4`}>
                         <p className={`text-2xl my-4`}>{post.attributes.description}</p>
-                        <p className={``}>{post.attributes.content}</p>
+                        <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
                     </div>
                 </article>
-                <div className={`my-8`}>
+                <div className={`bg-white w-fit my-8`}>
                     <span className={`text-lg`}>Did you enjoy this?</span>
                     <Link href='/posts'>
                         <a className={`uppercase mx-4`}>Read more</a>

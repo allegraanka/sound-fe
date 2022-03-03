@@ -11,14 +11,14 @@ const HomePage = ({ shows, featured }) => {
     <Layout>
       <div className={`grid grid-cols-1 lg:grid-cols-2`}>
         <div className={`p-4`}>
-          <div className={`text-2xl my-2 w-fit md:text-left`}>The Sound is your source for curated live music in Rochester, NY and a music community incubator initiative. Learn more <Link href='/about'><a>about us</a></Link>.</div>
+          <div className={`bg-white text-2xl my-2 w-fit md:text-left`}>The Sound is your source for curated live music in Rochester, NY and a music community incubator initiative. Learn more <Link href='/about'><a>about us</a></Link>.</div>
           <Tonight shows={shows}/>
           <SubmitShow />
           <EmailCapture />
         </div>
         <FeaturedPosts featured={featured}/>
       </div>
-      <div className={`w-screen h-60 flex items-center justify-center`}>
+      <div className={`bg-white w-screen h-60 flex items-center justify-center`}>
         <Link href='/about'>
           <a className={`text-5xl uppercase`}>Get to know us →</a>
         </Link>

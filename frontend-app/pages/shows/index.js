@@ -6,9 +6,9 @@ import { fetchAPI } from '../../lib/api';
 const ShowsPage = ({ shows }) => {
     return(
         <Layout title='The Sound | Upcoming Shows'>
-            <div className={`mb-12`}>
+            <div className={`mb-12 w-full p-8`}>
                 <SearchComponent />
-                <div className={`px-4 lg:px-8`}>
+                <div className={`lg:px-8`}>
                 <h1 className={`text-5xl text-black`}>Upcoming Shows</h1>
                 {shows.length === 0 && <p>There are no upcoming shows right now!</p>}
                     {shows.map((show) => (

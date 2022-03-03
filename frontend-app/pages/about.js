@@ -9,18 +9,18 @@ export default function AboutPage({ content }) {
             <div className={`px-8 lg:w-3/4 mx-auto`}>
 
                 <div className={``}>
-                    <div className={``}>
-                        <h1 className={`text-5xl`}>{content.attributes.title}</h1>
-                        <p className={`text-2xl md:text-3xl pb-12`}>{content.attributes.description}</p>
+                    <div className={`my-4`}>
+                        <h1 className={`text-6xl`}>{content.attributes.title}</h1>
+                        <p className={`bg-white p-2 text-2xl md:text-3xl`}>{content.attributes.description}</p>
                     </div>
                     <NextImage image={content.attributes.headerImage}/>
                 </div>
 
                 <div className={``}>
-                    <div className={`text-2xl my-8`}>
+                    <div className={`bg-white p-2 text-2xl my-8`}>
                         <ReactMarkdown>{content.attributes.contentSection1}</ReactMarkdown>
                     </div>
-                    <div className={`text-2xl my-8`}>
+                    <div className={`bg-white p-2 text-2xl my-8`}>
                         <ReactMarkdown>{content.attributes.contentSection2}</ReactMarkdown>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ export default function AboutPage({ content }) {
                         <NextImage image={content.attributes.kateImage}/>
                         <div className={`my-4`}>
                             <h2 className={`text-3xl`}>Kate</h2>
-                            <p className={`text-xl`}>{content.attributes.kateBio}</p>
+                            <p className={`bg-white p-2 text-xl`}>{content.attributes.kateBio}</p>
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@ export default function AboutPage({ content }) {
                         <NextImage className={``} image={content.attributes.allegraImage}/>
                         <div className={`my-4`}>
                             <h2 className={`text-3xl`}>Allegra</h2>
-                            <p className={`text-xl`}>{content.attributes.allegraBio}</p>
+                            <p className={`bg-white p-2 text-xl`}>{content.attributes.allegraBio}</p>
                         </div>
                     </div>
 

@@ -23,25 +23,28 @@ const NonNormalVectorsPage = ({ post }) => {
     const writers = post.attributes.writers.data.map((writer) => {
         return writer.attributes.name;
     });
+
+    console.log('episodoalskfjk --------> ', post);
     
     return(
         <Layout title='The Sound | Non Normal Vectors Podcast'>
             <div className={`p-4`}>
                 <article className={``}>
                     <Link href='/nonnormalvectors'>
-                        <a className={`uppercase`}>← Back to Episodes</a>
+                        <a className={`bg-white uppercase`}>← Back to Episodes</a>
                     </Link>
                     <div className={`mt-12 mb-8`}>
                         <NextImage image={post.attributes.image}/>
-                        <h1 className={`text-5xl mt-4`}>{post.attributes.title}</h1>
+                        <h1 className={`bg-white w-fit text-5xl mt-4`}>{post.attributes.title}</h1>
                         <p className={`uppercase text-sm`}>Written by <a href="#">{writers}</a> on {publishDate}. {categories.join(', ')}</p>
                     </div>
                     <div className={`w-full lg:w-3/4`}>
-                        <p className={`text-2xl my-4`}>{post.attributes.description}</p>
-                        <p className={``}>{post.attributes.content}</p>
+                        <h2 className={`bg-white w-fit text-2xl my-4`}>{post.attributes.description}</h2>
+                        <p className={`bg-white w-fit`}>{post.attributes.content}</p>
+                        <a className={`bg-white w-fit text-3xl`} href={`${process.env.STRAPI_API_BASE_URL}${post.attributes.audioFile.data.attributes.url}`}>Listen now!</a>
                     </div>
                 </article>
-                <div className={`my-8`}>
+                <div className={`bg-white w-fit my-8`}>
                     <span className={`text-lg`}>Did you like this?</span>
                     <Link href='/nonnormalvectors'>
                         <a className={`uppercase mx-4`}>Read more</a>

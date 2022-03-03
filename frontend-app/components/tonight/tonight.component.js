@@ -26,7 +26,7 @@ const Tonight = ({ shows }) => {
     });
 
     return(
-        <div className={`my-12 p-6 shadow-xl`}>
+        <div className={`bg-white my-12 p-6 shadow-xl`}>
             <div className={`text-3xl`}>{formatDate(current)}</div>
             <h2 className={`text-5xl text-black drop-shadow-md`}>Rochester Tonight</h2>
 

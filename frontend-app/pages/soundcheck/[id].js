@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import NextImage from '../../components/Image/Image';
 import Layout from '../../components/Layout/Layout';
+import ReactMarkdown from 'react-markdown';
 import { fetchAPI } from '../../lib/api';
 
 const SoundCheckPage = ({ post }) => {
@@ -29,19 +30,23 @@ const SoundCheckPage = ({ post }) => {
             <div className={`p-4`}>
                 <article className={``}>
                     <Link href='/soundcheck'>
-                        <a className={`uppercase`}>← Back to Sound Check</a>
+                        <a className={`bg-white uppercase`}>← Back to Sound Check</a>
                     </Link>
-                    <div className={`mt-12 mb-8`}>
+                    <div className={`bg-white mt-12 mb-8`}>
                         <NextImage image={post.attributes.image}/>
                         <h1 className={`text-5xl mt-4`}>{post.attributes.title}</h1>
                         <p className={`uppercase text-sm`}>Written by <a href="#">{writers}</a> on {publishDate}. {categories.join(', ')}</p>
                     </div>
-                    <div className={`w-full lg:w-3/4`}>
-                        <p className={`text-2xl my-4`}>{post.attributes.description}</p>
-                        <p className={``}>{post.attributes.content}</p>
+                    <div className={`bg-white w-full lg:w-3/4`}>
+                        <h2 className={`text-2xl my-4`}>{post.attributes.description}</h2>
+                        <ReactMarkdown className={`my-8`}>{post.attributes.content1}</ReactMarkdown>
+                        <ReactMarkdown className={`my-8`}>{post.attributes.content2}</ReactMarkdown>
+                        <ReactMarkdown className={`my-8`}>{post.attributes.content3}</ReactMarkdown>
+                        <ReactMarkdown className={`my-8`}>{post.attributes.content4}</ReactMarkdown>
+                        <ReactMarkdown className={`my-8`}>{post.attributes.content5}</ReactMarkdown>
                     </div>
                 </article>
-                <div className={`my-8`}>
+                <div className={`bg-white w-fit my-8`}>
                     <span className={`text-lg`}>Was this fun to read?</span>
                     <Link href='/soundcheck'>
                         <a className={`uppercase mx-4`}>Read more</a>

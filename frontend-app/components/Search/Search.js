@@ -12,7 +12,7 @@ export default function Search() {
     }
 
     return(
-        <div className={`w-screen h-36 flex items-center px-4 lg:px-8`}>
+        <div className={`h-36 flex items-center px-4 lg:px-8`}>
             <form className={``} onSubmit={handleSubmit}>
                 <h2 className={`text-xl`}>Looking for something?</h2>
                 <span className={``}>

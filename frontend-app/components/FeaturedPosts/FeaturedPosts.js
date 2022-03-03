@@ -1,24 +1,18 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import NextImage from '../Image/Image';
 
 export default function FeaturedPosts({ featured }) {
     return(
         <div className={`p-4`}>
             <div className={`my-4`}>
-                <h1 className={`text-3xl`}>What&apos;s happening in Rochester</h1>
+                <h1 className={`text-4xl`}>What&apos;s happening in Rochester</h1>
             </div>
             <div className={`grid grid-cols-1 md:grid-cols-2`}>
                 {featured && featured.map((post) => {
                     return (
-                        <div key={post.id} className={`my-4 md:mx-4 col-span-1`}>
+                        <div key={post.id} className={`bg-white pb-4 my-4 md:mx-4 col-span-1`}>
                             <div className={``}>
-                                <Image
-                                    className={`rounded-lg`}
-                                    src={`http://localhost:1337${post.attributes.image.data.attributes.formats.small.url}`}
-                                    width={post.attributes.image.data.attributes.formats.small.width}
-                                    height={post.attributes.image.data.attributes.formats.small.height}
-                                    alt='featured article image'
-                                />
+                                <NextImage image={post.attributes.image}/>
                             </div>
                             <div className={`px-2`}>
                                 {post.attributes.type === 'post' ? <Link href='/posts'><a className={`text-sm uppercase`}>Sound Board</a></Link> : ''}

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import Search from '../Search/Search';
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
@@ -11,7 +10,7 @@ const Navbar = () => {
     }
 
     return(
-        <nav className={`bg-white p-6`}>
+        <nav className={`bg-white px-6 py-4`}>
             <div className={`mx-auto`}>
                 <div className={`flex justify-between items-center`}>
                     <div className={``}>
@@ -33,17 +32,17 @@ const Navbar = () => {
                         </li>
                         <li className={`inline`}>
                             <Link href='/posts'>
-                                <a className={`transition duration-300`}>Sound Board</a>
+                                <a className={`transition duration-300`}>Sound Board Blog</a>
                             </Link>
                         </li>
                         <li className={`inline`}>
                             <Link href='/soundcheck'>
-                                <a className={`transition duration-300`}>Sound Check Series</a>
+                                <a className={`transition duration-300`}>Sound Check Interview Series</a>
                             </Link>
                         </li>
                         <li className={`inline`}>
                             <Link href='/nonnormalvectors'>
-                                <a className={`transition duration-300`}>Non Normal Vectors</a>
+                                <a className={`transition duration-300`}>NNV Podcast</a>
                             </Link>
                         </li>
                     </ul>
@@ -79,17 +78,17 @@ const Navbar = () => {
                             </li>
                             <li className={``}>
                                 <Link href='/posts'>
-                                    <a className={`block text-xl uppercase px-2 transition duration-300`}>Sound Board</a>
+                                    <a className={`block text-xl uppercase px-2 transition duration-300`}>Sound Board Blog</a>
                                 </Link>
                             </li>
                             <li className={``}>
                                 <Link href='/soundcheck'>
-                                    <a className={`block text-xl uppercase px-2 transition duration-300`}>Sound Check Series</a>
+                                    <a className={`block text-xl uppercase px-2 transition duration-300`}>Sound Check Interview Series</a>
                                 </Link>
                             </li>
                             <li className={``}>
                                 <Link href='/nonnormalvectors'>
-                                    <a className={`block text-xl uppercase px-2 transition duration-300`}>Non Normal Vectors</a>
+                                    <a className={`block text-xl uppercase px-2 transition duration-300`}>NNV Podcast</a>
                                 </Link>
                             </li>
                         </ul>

@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import styles from './ShowComponent.module.css';
 import { FaCalendarDay } from 'react-icons/fa';
 
 const ShowComponent = ({ show }) => {
@@ -11,9 +9,9 @@ const ShowComponent = ({ show }) => {
     }
 
     return(
-        <div className={`flex my-3 w-full text-black`}>
-            <div className={`px-2 mr-4 min-w-fit`}>
-                <div className={`flex items-center space-x-2`}>
+        <div className={`bg-white text-black flex w-full lg:w-96 my-3 py-3`}>
+            <div className={`bg-white text-black min-w-fit px-2 mr-4`}>
+                <div className={`w-fit flex items-center`}>
                     {show.isToday ? <FaCalendarDay /> : ''}
                     <div className={``}>{formatDate(show.attributes.date)}</div>
                 </div>
