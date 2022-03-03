@@ -18,7 +18,7 @@
     "description": {
       "type": "text"
     },
-    "content": {
+    "content1": {
       "type": "richtext"
     },
     "slug": {
@@ -63,13 +63,26 @@
       "required": true
     },
     "audioFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "content2": {
+      "type": "richtext"
+    },
+    "content3": {
+      "type": "richtext"
+    },
+    "content4": {
+      "type": "richtext"
+    },
+    "content5": {
+      "type": "richtext"
     }
   }
 }
