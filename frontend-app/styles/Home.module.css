@@ -1,0 +1,25 @@
+/* .container {
+  min-height: 100vh;
+  margin: 100px 0 0 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flexboxTonightShowcase {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.half {
+  flex-basis: calc(33.3333% - 2%);
+}
+
+@media screen and (max-width: 1000px) {
+  .flexboxTonightShowcase {
+    flex-direction: column;
+  }
+} */

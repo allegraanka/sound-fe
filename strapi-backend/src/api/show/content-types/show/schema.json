@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shows",
+  "info": {
+    "singularName": "show",
+    "pluralName": "shows",
+    "displayName": "Show",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headliner": {
+      "type": "string"
+    },
+    "support": {
+      "type": "text"
+    },
+    "venue": {
+      "type": "string"
+    },
+    "venueAddress": {
+      "type": "text"
+    },
+    "promoter": {
+      "type": "string"
+    },
+    "eventName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "eventName"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "showTime": {
+      "type": "string"
+    },
+    "doorTime": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "ticketPrice": {
+      "type": "string"
+    },
+    "ticketUrl": {
+      "type": "string"
+    },
+    "detailsUrl": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "submission": {
+      "type": "boolean",
+      "default": false
+    },
+    "chosen": {
+      "type": "boolean",
+      "default": false
+    },
+    "genre": {
+      "type": "string"
+    }
+  }
+}

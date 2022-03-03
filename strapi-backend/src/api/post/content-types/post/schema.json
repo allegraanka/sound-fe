@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "content1": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "posts"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "writers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::writer.writer",
+      "inversedBy": "posts"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "post",
+        "soundcheck",
+        "nonnormalvectors"
+      ],
+      "default": "post",
+      "required": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "audioFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "content2": {
+      "type": "richtext"
+    },
+    "content3": {
+      "type": "richtext"
+    },
+    "content4": {
+      "type": "richtext"
+    },
+    "content5": {
+      "type": "richtext"
+    }
+  }
+}
